@@ -1,0 +1,734 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
+
+
+}
+
+
+
+nav {
+    width: 100%;
+    height: 90px;
+    background: #0F172B;
+
+}
+
+nav li h1 {
+
+    color: orange;
+    font-size: 38px;
+
+}
+
+.navigation {
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    transition: all 0.2s ease-in;
+    overflow: hidden;
+}
+
+.navigation li {
+    margin: 0 1rem;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 36px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navigation a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 1px;
+    border-radius: 5px;
+    background: gold;
+    margin: -15px auto 0 auto;
+    transition: width 0.2s ease-in;
+}
+
+.navigation a:hover {
+    color: orange;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+.burger {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+.lignes {
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    position: absolute;
+    transition: opacity .2s ease-in,
+        background .2s ease-in,
+        top .2s ease-in,
+        transform .2s ease-in;
+}
+
+.lignes:nth-child(1) {
+    top: 0px;
+}
+
+.lignes:nth-child(2) {
+    top: 10px;
+}
+
+.lignes:nth-child(3) {
+    top: 20px;
+}
+
+.burger.active .lignes:nth-child(1) {
+    top: 12px;
+    background: gold;
+    transform: rotate(135deg);
+}
+
+.burger.active .lignes:nth-child(2) {
+    opacity: 0;
+    transform: translateX(200px);
+}
+
+.burger.active .lignes:nth-child(3) {
+    top: 12px;
+    background: gold;
+    transform: rotate(-135deg);
+}
+
+.header-section {
+
+    background-image: url('dubai.jpg');
+    background-position: center;
+    height: auto;
+    width: auto;
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+
+}
+
+.header-section h1 {
+    font-size: 70px;
+    color: white;
+
+}
+
+.header-section h3 {
+    margin-top: 15px;
+}
+
+.header-section .btn1 {
+    height: 60px;
+    width: 230px;
+    background-color: orange;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: large;
+    color: white;
+}
+
+.header-section .btn1 a {
+    text-decoration: none;
+    color: white;
+
+}
+
+.header-section .btn2 a {
+    text-decoration: none;
+    color: #0F172B;
+}
+
+.header-section a:hover {
+    color: orange;
+}
+
+
+
+.header-section .btn1:hover {
+    background-color: white;
+    color: orange;
+    border: 7px double orange;
+
+}
+
+.header-section .btn2:hover {
+    background-color: #0F172B;
+    color: white;
+    border: 7px double white;
+}
+
+.header-section button {
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 10px;
+    margin-bottom: 250px;
+}
+
+.header-section .btn2 {
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: large;
+    color: black;
+}
+
+.formulaire_entete {
+
+    color: black;
+    padding: 35px;
+    text-align: center;
+    margin-left: 350px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    width: 1100px;
+    font-weight: bold;
+
+
+}
+
+.formulaire_entete input {
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+
+
+}
+
+.btn_date {
+    background-color: orange;
+    color: white;
+    margin-left: 15px;
+    border: none;
+
+}
+
+.btn_date:hover {
+    background-color: white;
+    color: orange;
+
+}
+
+
+.box_pied_de_page {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin-left: 15%;
+    margin-bottom: 0%;
+    width: 65%;
+    border: 10px double orange;
+    height: 200px;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: orange;
+
+
+
+
+}
+
+.piedPage {
+    position: relative;
+    background-color: #0F172B;
+    color: white;
+    display: flex;
+    border: 1px solid black;
+    height: 500px;
+}
+
+.titrePiedpage {
+    color: orange;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    font-size: 1.6em;
+}
+
+.piedBox {
+
+    background-color: orange;
+    width: 25%;
+    height: 70%;
+    text-align: center;
+    padding-top: 35px;
+    margin-left: 35px;
+    margin-top: 20px;
+
+}
+
+.contactP {
+
+    height: 50%;
+    width: 30%;
+    text-align: center;
+    padding-top: 50px;
+    font-size: large;
+
+}
+
+.contactP img {
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: white
+}
+
+.contactP img:hover {
+    background-color: orange;
+}
+
+
+
+.compagnieP {
+    height: 50%;
+    width: 26%;
+    text-align: center;
+    padding-top: 50px;
+    font-size: large;
+
+}
+
+
+
+
+.ServicesP {
+    height: 50%;
+    width: 26%;
+    text-align: center;
+    padding-top: 50px;
+    font-size: large;
+
+
+}
+
+
+
+.box_pied_de_page h1 {
+    margin-bottom: 12px;
+}
+
+.box_pied_de_page input {
+    padding-left: 17%;
+    width: 600px;
+    height: 100px;
+    margin-left: 20px;
+    font-size: 1.2em;
+    color: gray;
+
+}
+
+.box_pied_de_page label {
+    color: black;
+    font-size: 1.6em;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 780px) {
+    .burger {
+        display: block;
+    }
+
+    .navigation a::after {
+        display: none;
+    }
+
+    .navigation {
+        top: -250px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .navigation li {
+        width: 100%;
+        height: 50px;
+        background: #333;
+    }
+
+    .navigation.active {
+        top: 50px;
+    }
+}
+
+
+
+.who {
+    padding-top: 7%;
+    text-align: center;
+    color: orange;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: black;
+
+}
+
+.welcome span {
+    color: orange;
+}
+
+.para1 {
+    text-align: center;
+    color: gray;
+}
+
+.Dashbord h2 {
+
+    border: 9px double #dee2e6;
+    width: 230px;
+    padding: 45px;
+    margin: 10px;
+
+
+
+}
+
+.Dashbord {
+    display: flex;
+    padding-left: 29%;
+    padding-top: 30px;
+
+
+
+}
+
+.btn-savoir {
+    margin-left: 29.7%;
+    background-color: orange;
+    font-size: large;
+    color: white;
+    height: 60px;
+    width: 250px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px solid transparent;
+    margin-bottom: 60px;
+}
+
+.btn-savoir:hover {
+    border: 8px double orange;
+    background-color: white;
+    color: orange;
+}
+
+.our-rooms {
+    text-align: center;
+    font-size: 2em;
+    color: orange;
+}
+
+.our-rooms+h1 {
+    text-align: center;
+    color: black;
+}
+
+.our-rooms+h1 span {
+    color: orange;
+
+}
+
+.listeChambre {
+    border: 0px solid red;
+    display: flex;
+    padding: 30px;
+    padding-bottom: 1%;
+    padding-top: 0.05;
+
+}
+
+.container {
+    border: 1px solid transparent;
+    margin-left: 2%;
+    height: fit-content;
+    width: fit-content;
+    padding: 19px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin-top: 10px;
+}
+
+
+
+
+
+.container button {
+    border: 1px solid transparent;
+    margin: 12px;
+    height: 60px;
+    width: 200px;
+    font-size: large;
+    color: white;
+
+
+}
+
+
+.btn-detail {
+    background-color: orange;
+    font-size: large;
+}
+
+.btn-reserver {
+    background-color: #0F172B;
+    font-size: large;
+}
+
+.btn-detail:hover {
+    background-color: white;
+    color: orange;
+    border: 12px double orange;
+    cursor: pointer;
+}
+
+.btn-reserver:hover {
+    background-color: white;
+    color: #0F172B;
+    border: 12px double #0F172B;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.gauche-droite {
+    border: 0px solid violet;
+    display: flex;
+    margin: 100px;
+
+
+
+}
+
+.gauche {
+    border: 0px solid red;
+    width: 50%;
+    padding: auto;
+    background-color: #0F172B;
+    color: white;
+    text-align: center;
+
+
+}
+
+.gauche h6 {
+    color: orange;
+    font-size: xx-large;
+}
+
+.gauche h1 {
+    font-size: 2.5em;
+
+}
+
+.gauche p {
+    border: opx solid gray;
+    margin-top: 4%;
+    font-size: 25px;
+    padding: 5%;
+}
+
+/* .gauche button {
+    height: 60px;
+    width: 250px;
+    font-size: large;
+    background-color: #0F172B;
+
+} */
+
+.gauche-btn1 {
+    background-color: orange;
+    color: white;
+    height: 60px;
+    width: 250px;
+    font-size: large;
+
+}
+
+.gauche-btn2 {
+    background-color: white;
+    color: #0F172B;
+    height: 60px;
+    width: 250px;
+    font-size: large;
+}
+
+.gauche-btn1:hover {
+    background-color: white;
+    color: orange;
+    border: 8px double orange
+}
+
+.gauche-btn2:hover {
+
+    background-color: #0F172B;
+    border: 8px double white;
+    color: white;
+}
+
+
+
+
+.droite {
+    border: 0px solid green;
+    width: 50%;
+    padding: auto;
+}
+
+.nos-services {
+    text-align: center;
+    color: orange;
+    font-size: 2em;
+
+}
+
+.nos-services+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: black;
+}
+
+.nos-services+h1 span {
+    color: orange;
+}
+
+.service-container {
+    border: 0px solid green;
+    width: 85%;
+    flex-wrap: wrap;
+    min-width: 30%;
+    display: flex;
+    margin-left: 15%;
+
+
+
+}
+
+.service {
+    width: 500px;
+    height: 350px;
+    border: 1px solid transparent;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+
+
+}
+
+.service h3 {
+    margin-bottom: 15px;
+
+}
+
+.service:hover {
+
+    color: white;
+    transition: background-color 0.5s ease-in-out;
+    background-color: orange;
+    color: white;
+
+}
+
+.commentaire {
+    background-image: url('carousel-1.jpg');
+    background-position: center;
+    display: flex;
+    padding-left: 5%;
+    height: 250px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+
+
+}
+
+.commentaire1 {
+
+    text-align: center;
+    border: 8px double white;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    width: 290px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin: 10px;
+
+
+}
+
+
+
+.commentaire1:first-child {
+    margin-right: 25%;
+    margin-left: 20%;
+}
+
+.commentaire+h3,
+h1 {
+    text-align: center;
+
+}
+
+.nos-emp {
+    color: orange;
+
+}
+
+
+
+.employ {
+    text-align: center;
+    display: flex;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.employ div {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin: 10px;
+    margin-bottom: 8%;
+
+
+}
+
+.about {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 4px 3px 9px black;
+    font-size: 1.6em;
+    padding: 45px;
+    margin: 145px;
+}
