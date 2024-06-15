@@ -1,25 +1,23 @@
-
 <?php
 include 'connecte.php';
-if(isset($_POST['submit'])){
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $genre=$_POST['genre'];
-    $telephone=$_POST['telephone'];
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $cnib=$_POST['cnib'];
+if (isset($_POST['submit'])) {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $genre = $_POST['genre'];
+    $telephone = $_POST['telephone'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cnib = $_POST['cnib'];
 
-    $sql="insert into client (nom,prenom,genre,telephone,email,password,cnib) 
+    $sql = "insert into client (nom,prenom,genre,telephone,email,password,cnib) 
     values('$nom','$prenom','$genre','$telephone','$email','$password','$cnib')";
-    $result=mysqli_query($con,$sql);
-    if($result){
+    $result = mysqli_query($con, $sql);
+    if ($result) {
         //echo " Donnees inserees avec succes";
         header('location:displayc.php');
-    }else{
+    } else {
         die(mysqli_error($con));
     }
-
 }
 
 
@@ -36,21 +34,25 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-<?php
-include("entete.php");
-?>
+    <?php
+    include("entete.php");
+    ?>
 
     <br>
     <br>
     <h1>inscrivez-vous</h1>
     <div class="form">
-        <form  method="post">
+        <form method="post">
             <label for="lname">Nom:</label><br>
             <input type="text" id="Nom" name="nom"><br>
             <label for="prenom">Prénom:</label><br>
             <input type="text" id="Prénom" name="prenom"><br>
-            <label for="genre">Genre:</label><br>
-            <input type="text" id="Genre" name="genre"><br>
+            <label for="Genre">Genre:</label><br>
+            <select name="genre" id="Genre" required>
+                <option value="">Sélectionnez votre genre...</option>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+            </select><br>
             <label for="telephone">Telephone:</label><br>
             <input type="text" id="telephone" name="telephone"><br>
             <label for="email">Email:</label><br>
@@ -108,12 +110,22 @@ include("entete.php");
             .form input[type="submit"]:hover {
                 background-color: darkblue;
             }
+
+            .form select {
+                width: 100%;
+                height: 45px;
+            }
+
+            .form+P a {
+
+                font-size: large;
+                font-weight: bold;
+            }
         </style>
 
-<?php
-include("pied_de_page.php");
-?>
+        <?php
+        include("pied_de_page.php");
+        ?>
 </body>
 
 </html>
-

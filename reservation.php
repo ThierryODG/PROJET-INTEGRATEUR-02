@@ -29,13 +29,41 @@
             <option value="simple">Chambre Simple</option>
             <option value="double">Chambre Double</option>
             <option value="triple">Chambre Triple</option>
-            <option value="suite">Suite</option>
+            <option value="dortoir">dortoir</option>
+            <option value="dortoir_mixte">dortoir mixte</option>
+            <option value="standard">standard</option>
+            <option value="millieu_de_gamme">millieu de gamme</option>
+            <option value="supérieure">supérieure</option>
+            <option value="luxe">luxe</option>
+            <option value="executive">executive</option>
+            <option value="Studio">Studio</option>
+            <option value="suite_junior">suite junior</option>
             <!-- Ajouter d'autres types de chambres si nécessaire -->
         </select><br><br>
+        <input type="checkbox" id="view" name="options[]" value="view">
+        <label for="view">Chambre avec vue</label><br>
 
-        <label for="demande_particuliere">Demandes particulières:</label>
-        <textarea id="demande_particuliere" name="demande_particuliere"></textarea><br><br>
+        <input type="checkbox" id="ground_floor" name="options[]" value="ground_floor">
+        <label for="ground_floor">Située en rez-de-chaussée</label><br>
 
+        <input type="checkbox" id="tv_channels" name="options[]" value="tv_channels">
+        <label for="tv_channels">Écran de télévision avec chaînes supplémentaires</label><br>
+
+        <input type="checkbox" id="wifi" name="options[]" value="wifi">
+        <label for="wifi">Accès au Wi-Fi</label><br>
+
+        <input type="checkbox" id="breakfast" name="options[]" value="breakfast">
+        <label for="breakfast">Petit déjeuner sur place</label><br><br>
+
+        <label for="special_requests">Demandes particulières :</label><br>
+        <textarea id="special_requests" name="special_requests" rows="8" cols="50">
+            Entrez ici vos demandes particulières...
+         </textarea><br>
+
+
+
+        <label for="nom">nom:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
         <label for="prenom">Prénom:</label>
         <input type="text" id="prenom" name="prenom" required><br><br>
 
@@ -45,6 +73,7 @@
             <option value="female">Féminin</option>
             <option value="other">Autre</option>
         </select><br><br>
+
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
@@ -83,6 +112,7 @@
         .form input[type="text"],
         .form input[type="email"],
         .form input[type="password"],
+        .form input[type="tel"],
         .form select {
             width: 100%;
             padding: 15px;
@@ -107,11 +137,23 @@
             background-color: #007d65;
         }
 
-        h1 {
+        .form h1 {
             text-align: center;
             font-size: 1.3em;
             margin-top: 30px;
             margin-bottom: 10px;
+        }
+
+        .form input[type="number"] {
+            height: 30px;
+            font-size: large;
+        }
+
+        .form input[type="date"] {
+            height: 20px;
+            font-size: medium;
+
+
         }
     </style>
 

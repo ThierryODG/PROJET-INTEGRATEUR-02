@@ -2,23 +2,21 @@
 include("entete.php");
 ?>
 <?php
-if(isset($_POST['submite'])){
-  
-  if(isset($_POST['email']) &&  isset($_POST['password'])){
-      $email = $_POST['email'];
-      $password = $_POST['password'];
-      $erreur = "";
-      include 'connecte.php';
-      $req = mysqli_query($con , "SELECT * FROM client WHERE email = '$email' AND password = '$password' ");
-      $num_ligne = mysqli_num_rows($req);
-      if($num_ligne >0){
-          header("location:hotel.php");
-      }else{
-        $erreur = "Email ou Mots de passe incorrectes.";
-      }
-       
-  } 
+if (isset($_POST['submite'])) {
 
+    if (isset($_POST['email']) &&  isset($_POST['password'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $erreur = "";
+        include 'connecte.php';
+        $req = mysqli_query($con, "SELECT * FROM client WHERE email = '$email' AND password = '$password' ");
+        $num_ligne = mysqli_num_rows($req);
+        if ($num_ligne > 0) {
+            header("location:hotel.php");
+        } else {
+            $erreur = "Email ou Mots de passe incorrectes.";
+        }
+    }
 }
 ?>
 
@@ -35,11 +33,11 @@ if(isset($_POST['submite'])){
 <body>
     <h1>connectez-vous</h1>
     <div class="form">
-    <?php
-if(isset($erreur)){
-  echo $erreur;
-}
-?>
+        <?php
+        if (isset($erreur)) {
+            echo $erreur;
+        }
+        ?>
         <form action=" " method="post">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
@@ -96,6 +94,12 @@ if(isset($erreur)){
 
             .form input[type="submit"]:hover {
                 background-color: darkblue;
+            }
+
+            .form+P a {
+
+                font-size: large;
+                font-weight: bold;
             }
         </style>
 

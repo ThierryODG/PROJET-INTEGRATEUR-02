@@ -177,14 +177,14 @@ nav li h1 {
 .header-section .btn1:hover {
     background-color: white;
     color: orange;
-    border: 7px double orange;
+
 
 }
 
 .header-section .btn2:hover {
     background-color: #0F172B;
     color: white;
-    border: 7px double white;
+
 }
 
 .header-section button {
@@ -202,7 +202,7 @@ nav li h1 {
     border-radius: 2px;
     cursor: pointer;
     font-size: large;
-    color: black;
+    color: #0F172B;
 }
 
 .formulaire_entete {
@@ -416,10 +416,9 @@ nav li h1 {
     width: 230px;
     padding: 45px;
     margin: 10px;
-
-
-
 }
+
+
 
 .Dashbord {
     display: flex;
@@ -727,8 +726,44 @@ h1 {
 .about {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 4px 3px 9px black;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     font-size: 1.6em;
     padding: 45px;
-    margin: 145px;
+    margin: 70px 145px 145px 145px;
+    background-color: coral;
+    color: bisque;
+}
+
+.about h1 {
+    margin-bottom: 12px
+}
+
+
+.contact {
+    text-align: center;
+    font-size: 1.8em;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    width: 70%;
+    height: 400px;
+    margin: 60px 100px 100px 100px;
+    margin-left: 14%;
+    padding-top: 30px;
+    background-color: coral;
+    color: bisque;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #0F172B;
+}
+
+.contact a:hover {
+    color: white;
+}
+
+.howContact {
+    color: bisque;
+    font-size: 1.5em;
+
 }
