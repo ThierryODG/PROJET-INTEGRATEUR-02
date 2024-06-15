@@ -1,6 +1,6 @@
 <?php
-    include("connecte.php");
-    ?>
+include("connecte.php");
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,38 +24,38 @@
     <!-- recceuillir dans la bases de donnéé les donnée reelle et les pacé a la palce des nombres mis -->
     <div class="Dashbord">
         <h2> <img src="./img/logo_chambre.png" alt="logo chambre" height="35px"> <?php $requete = "SELECT COUNT(*) AS nombre_chambres FROM chambre";
-$resultat = mysqli_query($con, $requete);
+                                                                                    $resultat = mysqli_query($con, $requete);
 
-if ($resultat) {
-    $row = mysqli_fetch_assoc($resultat);
-    $nombre_chambres = $row['nombre_chambres'];
-    echo "Chambre : $nombre_chambres";
-} else {
-    echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
-}
-?></h2>
+                                                                                    if ($resultat) {
+                                                                                        $row = mysqli_fetch_assoc($resultat);
+                                                                                        $nombre_chambres = $row['nombre_chambres'];
+                                                                                        echo "Chambre : $nombre_chambres";
+                                                                                    } else {
+                                                                                        echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
+                                                                                    }
+                                                                                    ?></h2>
         <h2> <img src="./img/logo_personnel.png" alt="logo personnel" height="30px"> <?php $requete = "SELECT COUNT(*) AS nombre_personnel FROM agent_reception";
-$resultat = mysqli_query($con, $requete);
+                                                                                        $resultat = mysqli_query($con, $requete);
 
-if ($resultat) {
-    $row = mysqli_fetch_assoc($resultat);
-    $nombre_personnel = $row['nombre_personnel'];
-    echo "personnel : $nombre_personnel";
-} else {
-    echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
-}
-?></h2>
+                                                                                        if ($resultat) {
+                                                                                            $row = mysqli_fetch_assoc($resultat);
+                                                                                            $nombre_personnel = $row['nombre_personnel'];
+                                                                                            echo "personnel : $nombre_personnel";
+                                                                                        } else {
+                                                                                            echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
+                                                                                        }
+                                                                                        ?></h2>
         <h2> <img src="./img/logo_client.png" alt="logo personnel" height="35px"> <?php $requete = "SELECT COUNT(*) AS nombre_client FROM client";
-$resultat = mysqli_query($con, $requete);
+                                                                                    $resultat = mysqli_query($con, $requete);
 
-if ($resultat) {
-    $row = mysqli_fetch_assoc($resultat);
-    $nombre_client = $row['nombre_client'];
-    echo " Clientèle : $nombre_client";
-} else {
-    echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
-}
-?></h2>
+                                                                                    if ($resultat) {
+                                                                                        $row = mysqli_fetch_assoc($resultat);
+                                                                                        $nombre_client = $row['nombre_client'];
+                                                                                        echo " Clientèle : $nombre_client";
+                                                                                    } else {
+                                                                                        echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
+                                                                                    }
+                                                                                    ?></h2>
 
     </div>
     <button class="btn-savoir">contactez-nous
@@ -94,7 +94,7 @@ if ($resultat) {
             <a href="detailChambre.php"><button class="gauche-btn1">nos chambres</button></a> <a href="reservation.php"><button class="gauche-btn2">Réserver une chambre</button></a>
         </div>
         <div class="droite">
-            <a href="https://www.youtube.com/embed/DWRcNpR6Kdc"><img src="./img/video.jpg" alt="" width="1500px"></a>
+            <a href="https://www.youtube.com/embed/DWRcNpR6Kdc"><img src="./img/video1.jpg" alt="" width="1500px" height="500px"></a>
 
         </div>
     </section>
@@ -153,23 +153,23 @@ if ($resultat) {
     <h1> <span class="nos-emp"> nos employé </span> du mois</h1>
     <section class="employ">
         <div class="emp">
-            <img src="./img/team-1.jpg" alt="">
-            <h3>boureima Ouedraogo</h3>
+            <img src="./img/employe1.jpg" alt="" height="400" width="400">
+            <h3>Nadine Ouedraogo</h3>
             <h4>receptionniste</h4>
         </div>
         <div class="emp">
-            <img src="./img/team-2.jpg" alt="">
-            <h3>Napon kevin</h3>
+            <img src="./img/employe2.jpg" alt="" height="400" width="400">
+            <h3>sombda Ouamrou</h3>
             <h4>préposé chambre</h4>
         </div>
         <div class="emp">
-            <img src="./img/team-3.jpg" alt="">
-            <h3>sore oumarou</h3>
+            <img src="./img/employe3.jpg" alt="" height="400" width="400">
+            <h3>Ki Golbert </h3>
             <h4>Sommelier</h4>
         </div>
         <div class="emp">
-            <img src="./img/team-4.jpg" alt="">
-            <h3>ilboudou sanson </h3>
+            <img src="./img/employe4.jpg" alt="" height="400" width="400">
+            <h3>willson sanson </h3>
             <h4>Maitre d'hotel</h4>
         </div>
     </section>

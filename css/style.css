@@ -37,6 +37,8 @@ nav li h1 {
     position: relative;
     transition: all 0.2s ease-in;
     overflow: hidden;
+
+
 }
 
 .navigation li {
@@ -49,9 +51,10 @@ nav li h1 {
 
 .navigation a {
     text-decoration: none;
-    color: #f1f1f1;
     font-weight: bold;
     text-transform: uppercase;
+    color: white;
+
 }
 
 .navigation a::after {
@@ -766,4 +769,43 @@ h1 {
     color: bisque;
     font-size: 1.5em;
 
+}
+
+.conteneur {
+
+    border: 1px solid transparent;
+    margin-left: 2%;
+    height: fit-content;
+    width: 1400px;
+    padding: 19px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-bottom: 15px;
+    background-color: whitesmoke;
+
+}
+
+
+.conteneur img {
+    margin-left: 29%;
+}
+
+.conteneur h3 {
+    text-align: center;
+
+}
+
+.conteneur p {
+    text-align: center;
+    font-size: large;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.titlecateg {
+    border: 8px double coral;
+    width: 500px;
+    margin-left: 35%;
+    font-size: 1.4em;
 }

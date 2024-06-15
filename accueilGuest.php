@@ -153,23 +153,23 @@ include("connecte.php");
     <h1> <span class="nos-emp"> nos employé </span> du mois</h1>
     <section class="employ">
         <div class="emp">
-            <img src="./img/team-1.jpg" alt="">
-            <h3>boureima Ouedraogo</h3>
+            <img src="./img/employe1.jpg" alt="" height="400" width="400">
+            <h3>Nadine Ouedraogo</h3>
             <h4>receptionniste</h4>
         </div>
         <div class="emp">
-            <img src="./img/team-2.jpg" alt="">
-            <h3>Napon kevin</h3>
+            <img src="./img/employe2.jpg" alt="" height="400" width="400">
+            <h3>sombda Ouamrou</h3>
             <h4>préposé chambre</h4>
         </div>
         <div class="emp">
-            <img src="./img/team-3.jpg" alt="">
-            <h3>sore oumarou</h3>
+            <img src="./img/employe3.jpg" alt="" height="400" width="400">
+            <h3>Ki Golbert </h3>
             <h4>Sommelier</h4>
         </div>
         <div class="emp">
-            <img src="./img/team-4.jpg" alt="">
-            <h3>ilboudou sanson </h3>
+            <img src="./img/employe4.jpg" alt="" height="400" width="400">
+            <h3>willson sanson </h3>
             <h4>Maitre d'hotel</h4>
         </div>
     </section>

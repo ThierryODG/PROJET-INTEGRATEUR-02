@@ -12,62 +12,41 @@
     <?php
     include("entete.php");
     ?>
-    <h1>Voici nos differentes catégories de chambres</h1>
+    <h1 class="titlecateg">Voici nos differentes catégories de chambres</h1>
     <section>
-        <div class="">
-            <img src="" alt="">
+        <div class="conteneur">
+            <img src="./img/chambreSimple.jpg" alt="" height="400" width="600">
             <h3>chambre simple</h3>
             <p>
+                cette chambre offre les commodité les plis basiques mais un garde le confort minimum
             </p>
         </div>
-        <div class="">
-            <img src="" alt="">
+        <div class="conteneur">
+            <img src="./img/chambreMilieu.jpg" alt="" height="400" width="600">
             <h3>chambre millieu de gamme</h3>
             <p>
+                cette chambre offre un confort plus poussé nottament grace a la presence d'un ecran de television 4k
             </p>
         </div>
-        <div class="">
-            <img src="" alt="">
-            <h3>chambre superieur</h3>
-            <p>
-            </p>
-        </div>
-        <div class="">
-            <img src="" alt="">
+        <div class="conteneur">
+            <img src="./img/chambreLuxepg.jpg" alt="" height="400" width="600">
             <h3>chambre de luxe</h3>
             <p>
+                avec cette chambre vous vous sentirez comme au paradis ! elle dispose de toutes les commodité
+                que le rois que vous etes pourrait desirer ! nottament un lis en soie , un ecran de television 8k une ps5..
             </p>
         </div>
-        <div class="">
-            <img src="" alt="">
-            <h3>chambre de luxe</h3>
-            <p>
-            </p>
-        </div>
-        <div class="">
-            <img src="" alt="">
+
+        <div class="conteneur">
+            <img src="./img/chambreExecutive.jpg" alt="" height="400" width="600">
             <h3>chambre executive</h3>
             <p>
+                ici , vous aurez droit a notre nec plus ultra en terme de confort , ce type de chambres ont étés concue par les meilleurs architectes Africains, elle dispose de tout ce dont vous revez
+                et bien plus encore
+
             </p>
         </div>
-        <div class="">
-            <img src="" alt="">
-            <h3>chambre studio</h3>
-            <p>
-            </p>
-        </div>
-        <div class="">
-            <img src="" alt="">
-            <h3>chambre junior</h3>
-            <p>
-            </p>
-        </div>
-        <div class="">
-            <img src="" alt="">
-            <h3>chambre suite</h3>
-            <p>
-            </p>
-        </div>
+
 
 
 

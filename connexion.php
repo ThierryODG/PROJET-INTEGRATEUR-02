@@ -51,7 +51,7 @@ if (isset($_POST['submite'])) {
 
 
         <style>
-            h1 {
+            .form h1 {
                 margin-top: 13px;
             }
 
