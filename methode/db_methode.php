@@ -336,15 +336,7 @@ use Dompdf\Options;
                     gap: 20px; /* Espace entre les colonnes */
                 }
 
-                .info div {
-                    width: 250px;
-                    background-color: #f4f4f4;
-                    padding: 20px;
-                    border: 1px solid #ddd;
-                    border-radius: 4px;
-                    flex: 1;
-                    box-sizing: border-box;
-                }
+                
 
                     
             </style>
