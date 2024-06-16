@@ -3,8 +3,19 @@
 /* Ne toucher pas ce fichier j'utilise pour tester mes methodes en attendant  les formulaires*/
     include("./methode/db_methode.php");
     //db_methode::add_client("ouedraogo", "Aziz", "Masculin", "252545", "aziz@gmail.com", "azizaziz", "b452552");
+    /*
+    $id_client = 1;
+    $id_reservation = 1;
+    $date_deduction = '2024-06-13 12:00:00';
+    $type_paiement = 'Carte de crédit';
+    $montant = 150.75;
+
+    // Appeler la méthode statique pour ajouter un paiement
+    db_methode::addaiement($id_client, $id_reservation, $date_deduction, $type_paiement, $montant);
+    */
+
     //db_methode::add_client("Mare","Daouda","Masculin","07684843","daoudamare19@gmail.com","daouda005","b11406390");
-    //db_methode::genererfacturepdf();
+    db_methode::genererfacturepdf();
 /*
     $to = 'daoudamare19@gmail.com';
     $subject = 'Code de Reservation';
@@ -52,6 +63,24 @@
     $stmt->close();
     $conn->close();
     */
+    /*
+    $nom = 'Bravia Hotel';
+    $adresse = 'Avenue Kwame Nkruma';
+    $categorie = '4 étoiles';
+    $emplacement = 'Centre-ville';
+    $description = 'Un hôtel luxueux au cœur de ouagadougou.';
+    $email = 'contact@braviahotel.com';
+    $site = 'http://braviahotel.com';
+    $imglink="./img/about-2.jpg";
+
+    db_methode::add_hotel($nom,$adresse,$categorie,$emplacement,$description,$email,$site,$imglink);
+  */
+  
+  //db_methode::add_chambre(4,"disponible","wifi,vu, tele",65000,1);
+  //db_methode::add_reservation(1,1,"12/05/2023",'24/07/2024',true,4);
+    //db_methode::add_responsable("Mare","Daouda","Masculin","07684843","daoudamare@gmail.com");
+
+
 ?>
 
 

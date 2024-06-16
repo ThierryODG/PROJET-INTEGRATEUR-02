@@ -1,5 +1,10 @@
 <?php
-    class bd_methode{
+
+require 'vendor/autoload.php';
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
+    class db_methode{
 
         public static function add_hotel($nom,$prenom,$categorie,$emplacement,$description,$email,$site,$imglink){
             $servername = "localhost";
@@ -56,9 +61,9 @@
         public static function add_chambre($type, $statut, $options, $prix, $id_hotel) {
                 // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
                 $servername = "localhost";
-                $username = "username";
-                $password = "password";
-                $dbname = "database_name";
+                $username = "root";
+                $password = "";
+                $dbname = "gestion_hotel";
         
                 try {
                     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -91,9 +96,9 @@
         public static function add_client($nom, $prenom, $genre, $telephone, $email, $password, $cnib) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
             $servername = "localhost";
-            $username = "username";
-            $password_db = "password";
-            $dbname = "database_name";
+            $username = "root";
+            $password_db = "";
+            $dbname = "gestion_hotel";
     
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password_db);
@@ -128,9 +133,9 @@
         public static function add_reservation($id_client, $id_chambre, $date_arrive, $date_depart, $statut_confirmation, $nb_personne) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
             $servername = "localhost";
-            $username = "username";
-            $password = "password";
-            $dbname = "database_name";
+            $username = "root";
+            $password = "";
+            $dbname = "gestion_hotel";
     
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -164,17 +169,17 @@
         public static function add_responsable($nom, $prenom, $genre, $telephone, $email, $password) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
             $servername = "localhost";
-            $username = "username";
-            $password_db = "password";
-            $dbname = "database_name";
+            $username = "root";
+            $password = "";
+            $dbname = "gestion_hotel";
     
             try {
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password_db);
+                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 // Configuration de PDO pour lever les exceptions en cas d'erreur
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
                 // Requête SQL préparée pour l'insertion
-                $stmt = $conn->prepare("INSERT INTO client (nom, prenom, genre, telephone, email, password, cnib) 
+                $stmt = $conn->prepare("INSERT INTO client (nom, prenom, genre, telephone, email, password) 
                                         VALUES (:nom, :prenom, :genre, :telephone, :email, :password)");
                 
                 // Liaison des paramètres
@@ -200,9 +205,9 @@
         public static function add_agent_reception($nom, $prenom, $genre, $telephone, $email, $password, $cnib) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
             $servername = "localhost";
-            $username = "username";
-            $password_db = "password";
-            $dbname = "database_name";
+            $username = "root";
+            $password_db = "";
+            $dbname = "gestion_hotel";
     
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password_db);
@@ -233,5 +238,207 @@
             // Fermeture de la connexion
             $conn = null;
         }
+
+        public static function addpaiement($id_client, $id_reservation, $date_deduction, $type_paiement, $montant) {
+
+           $host = 'localhost';
+           $dbname = 'gestion_hotel';
+           $username = 'root';
+           $password = '';
+           $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+
+            $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname . ';charset=utf8';
+            
+            try {
+                // Établir la connexion
+                $pdo = new PDO($dsn, $username, $password, $options);
+                
+                // Préparer et exécuter la requête
+                $sql = "INSERT INTO paiement (id_client, id_reservation, date_deduction, type_paiement, montant) VALUES (?, ?, ?, ?, ?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$id_client, $id_reservation, $date_deduction, $type_paiement, $montant]);
+                
+                echo "Nouveau paiement ajouté avec succès.";
+            } catch (PDOException $e) {
+                echo "Erreur: " . $e->getMessage();
+            }
+        }
+
+        public static function addacture($id_reservation, $id_paiement, $id_client, $detail_prestation, $somme_total) {
+
+            $host = 'localhost';
+            $dbname = 'gestion_hotel';
+            $username = 'root';
+            $password = '';
+            $options = [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    PDO::ATTR_EMULATE_PREPARES => false,
+                ];
+
+            $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname . ';charset=utf8';
+            
+            try {
+                // Établir la connexion
+                $pdo = new PDO($dsn, $username, $password, $options);
+                
+                // Préparer et exécuter la requête
+                $sql = "INSERT INTO facture (id_reservation, id_paiement, id_client, detail_prestation, somme_total) VALUES (?, ?, ?, ?, ?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$id_reservation, $id_paiement, $id_client, $detail_prestation, $somme_total]);
+                
+                echo "Nouvelle facture ajoutée avec succès.";
+            } catch (PDOException $e) {
+                echo "Erreur: " . $e->getMessage();
+            }
+        }
+
+    public static function genererfacturepdf($filename = 'Facture.pdf', $stream = true)
+    {
+        $html = '
+                <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Table d\'Hôtel</title>
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    border: 1px solid black;
+                    padding: 8px;
+                    text-align: left;
+                }
+                th {
+                    background-color: #f2f2f2;
+                }
+                
+                h2{
+                    background-color: #B5B72D;
+                    text-align:center;
+                    font: size 25px;
+                }
+
+                h3{
+                    background-color: #B5B72D;
+                }
+
+                .info {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr); /* Crée 2 colonnes de largeur égale */
+                    gap: 20px; /* Espace entre les colonnes */
+                }
+
+                .info div {
+                    width: 250px;
+                    background-color: #f4f4f4;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    flex: 1;
+                    box-sizing: border-box;
+                }
+
+                    
+            </style>
+        </head>
+        <body>
+
+        <h2>Facture de reservation</h2>
+
+        <div class="info">
+            <div>
+                <h3>Information sur Hotel</h3>
+                <div class="box">
+                    <p>Nom: </p>
+                    <p>Prenom: </p>
+                    <p>Tel: </p>
+                    <p>Email: </p>
+                    <p>site: </p>
+                </div>
+            </div>
+
+            <div>
+                <h3>Information sur client</h3>
+                <div class="box">
+                    <p>Nom: </p>
+                    <p>Prenom: </p>
+                    <p>Tel: </p>
+                    <p>Email: </p>
+                </div>
+            </div>
+
+        </div>
+
+        <table>
+
+            <caption ><h3>Informations des Clients</h3></caption>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Chambre</th>
+                    <th>Code Hôtel</th>
+                    <th>Montant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dupont</td>
+                    <td>Jean</td>
+                    <td>101</td>
+                    <td>HTL123</td>
+                    <td>200€</td>
+                </tr>
+                <tr>
+                    <td>Martin</td>
+                    <td>Marie</td>
+                    <td>102</td>
+                    <td>HTL124</td>
+                    <td>150€</td>
+                </tr>
+                <tr>
+                    <td>Durand</td>
+                    <td>Pierre</td>
+                    <td>103</td>
+                    <td>HTL125</td>
+                    <td>180€</td>
+                </tr>
+            </tbody>
+        </table>
+
+        </body>
+        </html>
+        ';
+        // Initialiser Dompdf avec les options par défaut
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isRemoteEnabled', true); // Pour autoriser les images distantes
+        $dompdf = new Dompdf($options);
+
+        // Charger le HTML dans Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optionnel) Définir le format de papier et l'orientation
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render le HTML comme PDF
+        $dompdf->render();
+
+        if ($stream) {
+            // Sortie du PDF dans le navigateur
+            $dompdf->stream($filename, ["Attachment" => false]);
+        } else {
+            // Sauvegarde le fichier PDF
+            file_put_contents($filename, $dompdf->output());
+        }
+    }
     }
 ?>
