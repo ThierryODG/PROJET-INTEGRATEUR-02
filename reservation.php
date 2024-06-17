@@ -1,3 +1,29 @@
+<?php
+include 'connecte.php';
+if (isset($_POST['submit'])) {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $genre = $_POST['genre'];
+    $telephone = $_POST['telephone'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cnib = $_POST['cnib'];
+
+    $sql = "insert into client (nom,prenom,genre,telephone,email,password,cnib) 
+    values('$nom','$prenom','$genre','$telephone','$email','$password','$cnib')";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        //echo " Donnees inserees avec succes";
+        header('location:displayc.php');
+    } else {
+        die(mysqli_error($con));
+    }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

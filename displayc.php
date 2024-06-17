@@ -60,8 +60,8 @@ include("entete.php");
             <td> '.$cnib.'</td>
             
             <td>
-            <button class="btn btn-primary"><a href="modifier.php?modifieid='.$id.'" class="text-light">Modifier</a></button>
-            <button class="btn btn-danger"><a href="supprimer.php?supprimeid='.$id.'" class="text-light">Supprimer</a></button>
+            <button class="btn btn-primary"><a href="modifier1.php?modifieid='.$id.'" class="text-light">Modifier</a></button>
+            <button class="btn btn-danger"><a href="supprimer1.php?supprimeid='.$id.'" class="text-light">Supprimer</a></button>
             </td>
         </tr>'; 
         }

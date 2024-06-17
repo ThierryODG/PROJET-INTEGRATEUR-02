@@ -19,9 +19,21 @@ include("connecte.php");
 
 
     <h4 class="who"> qui sommes-nous</h4>
-    <h1 class="welcome">bienvenu chez <span>Diamond</span> </h1>
-    <p class="para1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta illum voluptatum nisi porro sed. Ea rem quod error, amet ratione <br>aut adipisci necessitatibus officiis voluptates suscipit, ipsum sint labore tempore fugit, tempora delectus facilis voluptatem.</p>
-    <!-- recceuillir dans la bases de donnéé les donnée reelle et les pacé a la palce des nombres mis -->
+    <h1 class="welcome">Bienvenu chez <span>Diamond</span> <?php $requete = "SELECT UPPER(nom) AS nombre_client FROM client";
+                                                                                    $resultat = mysqli_query($con, $requete);
+
+                                                                                    if ($resultat) {
+                                                                                        $row = mysqli_fetch_assoc($resultat);
+                                                                                        $nombre_client = $row['nombre_client'];
+                                                                                        echo "Mr/Mme  $nombre_client";
+                                                                                    } else {
+                                                                                        echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
+                                                                                    }
+                                                                                    ?></h1>
+    <p class="para1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta illum voluptatum nisi porro sed. Ea rem quod error, amet ratione <br>aut adipisci necessitatibus officiis voluptates suscipit, ipsum sint labore tempore fugit, tempora delectus facilis voluptatem.</p></br>
+
+    <a href="hotel.php"><strong>Visitez notre hotel</strong></a>.
+
     <div class="Dashbord">
         <h2> <img src="./img/logo_chambre.png" alt="logo chambre" height="35px"> <?php $requete = "SELECT COUNT(*) AS nombre_chambres FROM chambre";
                                                                                     $resultat = mysqli_query($con, $requete);
