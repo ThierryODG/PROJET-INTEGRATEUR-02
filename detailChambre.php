@@ -18,7 +18,7 @@
             <img src="./img/chambreSimple.jpg" alt="" height="400" width="600">
             <h3>chambre simple</h3>
             <p>
-                cette chambre offre les commodité les plis basiques mais un garde le confort minimum
+                cette chambre offre les commodités les plus basiques mais garde le confort minimum pour un sejour agréable
             </p>
         </div>
         <div class="conteneur">
@@ -33,7 +33,7 @@
             <h3>chambre de luxe</h3>
             <p>
                 avec cette chambre vous vous sentirez comme au paradis ! elle dispose de toutes les commodité
-                que le rois que vous etes pourrait desirer ! nottament un lis en soie , un ecran de television 8k une ps5..
+                que le rois que vous etes pourrait désirer ! nottament un lis en soie , un ecran de television 8k une ps5..
             </p>
         </div>
 
@@ -41,7 +41,8 @@
             <img src="./img/chambreExecutive.jpg" alt="" height="400" width="600">
             <h3>chambre executive</h3>
             <p>
-                ici , vous aurez droit a notre nec plus ultra en terme de confort , ce type de chambres ont étés concue par les meilleurs architectes Africains, elle dispose de tout ce dont vous revez
+                ce type de chambres vous donnera droit a notre nec plus ultra en terme de confort , ce type de chambres ont étés concue par les meilleurs
+                architectes Africains, elle dispose de tout ce dont vous revez
                 et bien plus encore
 
             </p>

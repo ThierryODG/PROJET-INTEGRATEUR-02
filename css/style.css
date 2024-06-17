@@ -245,20 +245,16 @@ nav li h1 {
 
 
 .box_pied_de_page {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; */
     margin-left: 15%;
     margin-bottom: 0%;
     width: 65%;
-    border: 10px double orange;
+    border: 4px solid black;
     height: 200px;
     background-color: white;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 0px 15px #0F172B; */
     text-align: center;
-    color: orange;
-
-
-
-
+    color: black;
 }
 
 .piedPage {
@@ -270,10 +266,13 @@ nav li h1 {
     height: 500px;
 }
 
+.piedPage li {
+    margin-bottom: 2px;
+}
+
 .titrePiedpage {
     color: orange;
-    margin-bottom: 5px;
-    text-decoration: underline;
+    margin-bottom: 15px;
     font-size: 1.6em;
 }
 
@@ -295,7 +294,7 @@ nav li h1 {
     width: 30%;
     text-align: center;
     padding-top: 50px;
-    font-size: large;
+    font-size: 1.3em;
 
 }
 
@@ -305,9 +304,6 @@ nav li h1 {
     background-color: white
 }
 
-.contactP img:hover {
-    background-color: orange;
-}
 
 
 
@@ -316,7 +312,7 @@ nav li h1 {
     width: 26%;
     text-align: center;
     padding-top: 50px;
-    font-size: large;
+    font-size: 1.4em;
 
 }
 
@@ -328,7 +324,7 @@ nav li h1 {
     width: 26%;
     text-align: center;
     padding-top: 50px;
-    font-size: large;
+    font-size: 1.4em;
 
 
 }
@@ -391,7 +387,7 @@ nav li h1 {
 
 
 .who {
-    padding-top: 7%;
+    padding-top: 3%;
     text-align: center;
     color: orange;
 }
@@ -411,14 +407,21 @@ nav li h1 {
 .para1 {
     text-align: center;
     color: gray;
+    font-size: 1.3em;
 }
 
 .Dashbord h2 {
 
     border: 9px double #dee2e6;
     width: 230px;
-    padding: 45px;
+    padding: 20px 45px 45px 45px;
+    padding-left: 15px;
     margin: 10px;
+
+}
+
+.Dashbord img {
+    margin-left: 25%;
 }
 
 
@@ -472,13 +475,14 @@ nav li h1 {
     padding: 30px;
     padding-bottom: 1%;
     padding-top: 0.05;
+    text-align: center;
 
 }
 
 .container {
     border: 1px solid transparent;
-    margin-left: 2%;
-    height: fit-content;
+    margin-left: 5%;
+    height: 500px;
     width: fit-content;
     padding: 19px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -543,6 +547,7 @@ nav li h1 {
     background-color: #0F172B;
     color: white;
     text-align: center;
+    height: 500px;
 
 
 }
@@ -550,18 +555,20 @@ nav li h1 {
 .gauche h6 {
     color: orange;
     font-size: xx-large;
+    margin-top: 16px;
 }
 
 .gauche h1 {
     font-size: 2.5em;
 
+
 }
 
 .gauche p {
     border: opx solid gray;
-    margin-top: 4%;
+    margin-top: 0%;
     font-size: 25px;
-    padding: 5%;
+    padding: 3%;
 }
 
 /* .gauche button {
@@ -634,7 +641,7 @@ nav li h1 {
     flex-wrap: wrap;
     min-width: 30%;
     display: flex;
-    margin-left: 15%;
+    margin-left: 10%;
 
 
 
@@ -715,7 +722,7 @@ h1 {
     text-align: center;
     display: flex;
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 8%;
 }
 
 .employ div {
@@ -781,7 +788,7 @@ h1 {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     margin-top: 20px;
     margin-left: 10%;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     background-color: whitesmoke;
 
 }
@@ -808,4 +815,8 @@ h1 {
     width: 500px;
     margin-left: 35%;
     font-size: 1.4em;
+}
+
+.titleconnect {
+    font-size: 3em;
 }
