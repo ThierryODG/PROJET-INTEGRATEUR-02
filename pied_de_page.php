@@ -7,7 +7,7 @@
     <div class="piedPage">
         <div class="piedBox">
             <h1>Diamond</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ut excepturi doloremque corporis quam officiis illum a dolorum nam magnam?</p>
+            <p>© 2024 Hôtel Diamond. Tous droits réservés. Politique de confidentialité | Termes et conditions | Contactez-nous pour plus d’informations</p>
         </div>
         <div class="contactP">
 

@@ -31,7 +31,7 @@ if (isset($_POST['submite'])) {
 </head>
 
 <body>
-    <h1>connectez-vous</h1>
+    <h1 class="titleconnect">connectez-vous</h1>
     <div class="form">
         <?php
         if (isset($erreur)) {
@@ -65,13 +65,14 @@ if (isset($_POST['submite'])) {
 
             .form {
                 width: 300px;
-                margin: 0 auto;
+                margin: auto;
+                padding: 30px;
 
             }
 
             .form label {
                 display: block;
-                margin-top: 20px;
+
             }
 
             .form input[type="text"],

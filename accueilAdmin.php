@@ -138,7 +138,7 @@ include("connecte.php");
 
     <section class="commentaire">
         <div class="commentaire1">
-            <img src="./img/testimonial-1.jpg" alt="">
+            <img src="./img/coment1.jpg" alt="">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ducimus.</p>
             <h4>melanie renault</h4>
         </div>
