@@ -820,3 +820,16 @@ h1 {
 .titleconnect {
     font-size: 3em;
 }
+
+
+.hotel{
+    border: 1px dashed black;
+}
+
+.hotels{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

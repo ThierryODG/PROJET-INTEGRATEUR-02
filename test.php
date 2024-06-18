@@ -11,11 +11,11 @@
     $montant = 150.75;
 
     // Appeler la méthode statique pour ajouter un paiement
-    db_methode::addaiement($id_client, $id_reservation, $date_deduction, $type_paiement, $montant);
-    */
+    //db_methode::addpaiement($id_client, $id_reservation, $date_deduction, $type_paiement, $montant);
+    
 
     //db_methode::add_client("Mare","Daouda","Masculin","07684843","daoudamare19@gmail.com","daouda005","b11406390");
-    db_methode::genererfacturepdf();
+    //db_methode::genererfacturepdf();
 /*
     $to = 'daoudamare19@gmail.com';
     $subject = 'Code de Reservation';
@@ -64,22 +64,33 @@
     $conn->close();
     */
     /*
-    $nom = 'Bravia Hotel';
-    $adresse = 'Avenue Kwame Nkruma';
-    $categorie = '4 étoiles';
-    $emplacement = 'Centre-ville';
-    $description = 'Un hôtel luxueux au cœur de ouagadougou.';
-    $email = 'contact@braviahotel.com';
-    $site = 'http://braviahotel.com';
-    $imglink="./img/about-2.jpg";
+    $nom = 'Laafi';
+    $adresse = 'Tenkodogo';
+    $categorie = '3 étoiles';
+    $emplacement = 'ville de Tenkodogo';
+    $description = 'Un hôtel luxueux 3 etoiles au coeur de Tenkodogo.';
+    $email = 'contact@laafi.com';
+    $site = 'http://laafi.com';
+    $imglink="./img/room-1.jpg";
 
     db_methode::add_hotel($nom,$adresse,$categorie,$emplacement,$description,$email,$site,$imglink);
-  */
+  
   
   //db_methode::add_chambre(4,"disponible","wifi,vu, tele",65000,1);
   //db_methode::add_reservation(1,1,"12/05/2023",'24/07/2024',true,4);
     //db_methode::add_responsable("Mare","Daouda","Masculin","07684843","daoudamare@gmail.com");
+    */
 
+    $auth=db_methode::login("aziz@gmail.com","azizaziz");
+    echo $auth;
+    if ($auth) {
+        echo "connexion reussi!!";
+    }
+    else{
+        echo "connexion echouee!!";
+    }
+
+    
 
 ?>
 
