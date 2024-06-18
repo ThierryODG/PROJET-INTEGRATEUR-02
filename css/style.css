@@ -487,6 +487,7 @@ nav li h1 {
     padding: 19px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     margin-top: 10px;
+    overflow-y: hidden;
 }
 
 
@@ -654,6 +655,7 @@ nav li h1 {
     margin: 20px;
     text-align: center;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    margin-left: 7%;
 
 
 }
@@ -692,6 +694,7 @@ nav li h1 {
     font-weight: bold;
     background-color: white;
     width: 290px;
+    overflow-y: hidden;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     margin: 10px;
 
@@ -722,7 +725,7 @@ h1 {
     text-align: center;
     display: flex;
     margin-top: 30px;
-    margin-left: 8%;
+    margin-left: 1%;
 }
 
 .employ div {

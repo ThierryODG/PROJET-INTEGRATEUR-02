@@ -81,7 +81,7 @@ include("connecte.php");
         <div class="container">
             <img src="./img/room-3.jpg" alt="">
             <h3>Deluxe</h3>
-            <p> Suite somptueuse, services exclusifs, vue imprenable pour <br> une élégance inégalée.</p>
+            <p> Suite somptueuse, services exclusifs, <br>vue imprenable pour une élégance inégalée.</p>
             <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="reservation.php"> <button class="btn-reserver">reserver maintenant</button></a>
         </div>
         </div>

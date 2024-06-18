@@ -12,7 +12,7 @@ if (isset($_POST['submite'])) {
         $req = mysqli_query($con, "SELECT * FROM client WHERE email = '$email' AND password = '$password' ");
         $num_ligne = mysqli_num_rows($req);
         if ($num_ligne > 0) {
-            header("location:hotel.php");
+            header("location:accueilGuest.php");
         } else {
             $erreur = "Email ou Mots de passe incorrectes.";
         }
