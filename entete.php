@@ -38,9 +38,24 @@
 <section class="header-section sous">
     <div>
         <h3>vivez dans le luxe</h3>
-        <h1>Decouvrez nos hotels de luxe </h1>
-        <a href="detailChambre.php"> <button class="btn1">NOS CHAMBRES</button></a>
-        <a href="reservation.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <?php
+            $currentPage = basename($_SERVER['PHP_SELF']);
+           if($currentPage=="index.php"){
+            echo"<h1>Decouvrez nos hotels de luxe </h1><br><br><a href=\"detailChambre.php\"> <button class=\"btn1\">CONSULTER NOS CHAMBRES</button></a>";
+           }
+           elseif ($currentPage=="hotel.php") {
+            echo"<h1>Catalogue de nos Hotels.<br> Faites votre choix!! </h1>";
+           }
+           elseif ($currentPage=="inscription.php" || $currentPage=="inscription.php") {
+            echo"<h1>Veillez vous inscrire ou vous connectez pour effectuer une reservation</h1>";
+           }
+           else{
+            echo"<h1>Bienvenu!! <br>Decouvrez nos hotels de luxe</h1>";
+           }
+        ?>
+        
+        
+        
     </div>
 
 

@@ -268,7 +268,7 @@ use Dompdf\Options;
             }
         }
 
-        public static function addacture($id_reservation, $id_paiement, $id_client, $detail_prestation, $somme_total) {
+        public static function addfacture($id_reservation, $id_paiement, $id_client, $detail_prestation, $somme_total) {
 
             $host = 'localhost';
             $dbname = 'gestion_hotel';
@@ -432,5 +432,61 @@ use Dompdf\Options;
             file_put_contents($filename, $dompdf->output());
         }
     }
+
+    public static function getHotels() {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "gestion_hotel";
+
+        try {
+            $conn = new PDO("mysql:host=" . $servername . ";dbname=" . $dbname, $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $stmt = $conn->prepare("SELECT nom, description, photo FROM hotel");
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+        finally {
+            if ($conn) {
+                $conn = null;
+            }
+        }
     }
+
+    public static function login($email, $password) {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "gestion_hotel";
+
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $stmt = $conn->prepare("SELECT * FROM client WHERE email = :email");
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+
+            if ($stmt->rowCount() == 1) {
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (password_verify($password, $user['password'])) {
+                    // Authentification réussie
+                    return true;
+                }
+            }
+            return false;
+        } catch(PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+        finally {
+            if ($conn) {
+                $conn = null;
+            }
+        }
+    }
+}
 ?>
