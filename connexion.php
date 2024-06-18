@@ -1,5 +1,5 @@
 <?php
-include("entete1.php");
+include("entete.php");
 ?>
 <?php
 if (isset($_POST['submite'])) {
@@ -48,6 +48,11 @@ if (isset($_POST['submite'])) {
     </div>
 
     <p>Vous n'avez pas de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.
+        <a href="connexion1.php">
+            <div style="text-align: center;">
+                <strong>connexion Admin</strong>
+            </div>
+        </a>
 
 
         <style>

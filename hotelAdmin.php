@@ -16,7 +16,7 @@ $hotels = db_methode::getHotels();
 
 <body>
     <?php
-    include("entete1.php");
+    include("entete2.php");
     ?>
 
     <h1> nos differents hotels</h1>

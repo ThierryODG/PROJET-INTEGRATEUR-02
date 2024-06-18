@@ -23,8 +23,8 @@ if (isset($_POST['submit'])) {
     values('$nom','$prenom','$genre','$telephone','$email','$password','$cnib') ";
     $result = mysqli_query($con, $sql);
     $resultat = mysqli_query($con, $requete);
-    
-    if ($result && $resultat ) {
+
+    if ($result && $resultat) {
         //echo " Donnees inserees avec succes";
         header('location:displayr.php');
     } else {
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php
-    include("entete.php");
+    include("entete1.php");
     ?>
 
     <h1>Réservation de Chambre</h1>
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
             <option value="executive">executive</option>
             <option value="Studio">Studio</option>
             <option value="suite_junior">suite junior</option>
-            
+
         </select><br><br>
         <input type="checkbox" id="view" name="options[]" value="view">
         <label for="view">Chambre avec vue</label><br>

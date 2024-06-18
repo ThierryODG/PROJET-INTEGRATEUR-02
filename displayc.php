@@ -1,7 +1,5 @@
-
-
 <?php
-include 'connecte.php';?>
+include 'connecte.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,67 +13,68 @@ include 'connecte.php';?>
     <title>Resultat</title>
 
 <body>
-<?php
-include("entete.php");
-?>
-<div class="container">
- <button class="btn btn-primary my-5"><a href="inscription.php" class="text-light">Ajouter utilisateur</a></button>
- <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">no</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Genre</th>
-            <th scope="col">Telephone</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mot de passe</th>
-            <th scope="col">CNIB</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+    <?php
+    //include("entete.php");
+    ?>
+    <div class="containerD">
+        <button class="btn btn-primary my-5"><a href="inscription.php" class="text-light">Ajouter utilisateur</a></button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">no</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Telephone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mot de passe</th>
+                    <th scope="col">CNIB</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
 
-      <?php
-       $sql="select * from client";
-       $result=mysqli_query($con,$sql);
-       if($result){
-        while($row=mysqli_fetch_assoc($result)){
-            $id=$row['id'];
-            $nom=$row['nom'];
-            $prenom=$row['prenom'];
-            $genre=$row['genre'];
-            $telephone=$row['telephone'];
-            $email=$row['email'];
-            $password=$row['password'];
-            $cnib=$row['cnib'];
-            echo '<tr>
-            <th scope="row">'.$id.'</th>
-             <td>'.$nom.'</td>
-            <td>'.$prenom.'</td>
-            <td>'.$genre.'</td>
-            <td>'.$telephone.'</td>
-            <td> '.$email.'</td>
-            <td>'.$password.' </td>
-            <td> '.$cnib.'</td>
+                <?php
+                $sql = "select * from client";
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row['id'];
+                        $nom = $row['nom'];
+                        $prenom = $row['prenom'];
+                        $genre = $row['genre'];
+                        $telephone = $row['telephone'];
+                        $email = $row['email'];
+                        $password = $row['password'];
+                        $cnib = $row['cnib'];
+                        echo '<tr>
+            <th scope="row">' . $id . '</th>
+             <td>' . $nom . '</td>
+            <td>' . $prenom . '</td>
+            <td>' . $genre . '</td>
+            <td>' . $telephone . '</td>
+            <td> ' . $email . '</td>
+            <td>' . $password . ' </td>
+            <td> ' . $cnib . '</td>
             
             <td>
-            <button class="btn btn-primary"><a href="modifier1.php?modifieid='.$id.'" class="text-light">Modifier</a></button>
-            <button class="btn btn-danger"><a href="supprimer1.php?supprimeid='.$id.'" class="text-light">Supprimer</a></button>
+            <button class="btn btn-primary"><a href="modifier1.php?modifieid=' . $id . '" class="text-light">Modifier</a></button>
+            <button class="btn btn-danger"><a href="supprimer1.php?supprimeid=' . $id . '" class="text-light">Supprimer</a></button>
             </td>
-        </tr>'; 
-        }
-       }
+        </tr>';
+                    }
+                }
 
-       ?>
-        
-        
-    </tbody>
-    <p> <a href="connexion.php">connectez-vous ici</a>.
-  </table> 
-  </div>  
+                ?>
 
-  
+
+            </tbody>
+            <p> <a href="connexion.php">connectez-vous ici</a>.
+        </table>
+    </div>
+
+
+
 </body>
 
 </html>
