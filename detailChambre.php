@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include("entete.php");
+    include("entete1.php");
     ?>
     <h1 class="titlecateg">Voici nos differentes catégories de chambres</h1>
     <section>

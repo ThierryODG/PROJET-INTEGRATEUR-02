@@ -14,7 +14,7 @@ include("connecte.php");
 
 <body>
     <?php
-    include("entete.php");
+    include("entete1.php");
     ?>
 
 
@@ -69,20 +69,20 @@ include("connecte.php");
             <img src="./img/room-1.jpg" alt="">
             <h3> simple</h3>
             <p>Confort essentiel, ambiance cosy, idéale pour voyageurs solitaires.</p>
-            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="reservation.php"> <button class="btn-reserver">reserver maintenant</button></a>
+            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="connexion.php"> <button class="btn-reserver">reserver maintenant</button></a>
         </div>
         <div class="container">
             <img src="./img/room-2.jpg" alt="">
             <h3> millieu de gamnme</h3>
             <p>Spacieuse, équipements modernes, parfait équilibre <br>qualité-prix pour un sejour agréable</p>
-            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="reservation.php"> <button class="btn-reserver">reserver maintenant</button></a>
+            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="connexion.php"> <button class="btn-reserver">reserver maintenant</button></a>
         </div>
         </div>
         <div class="container">
             <img src="./img/room-3.jpg" alt="">
             <h3>Deluxe</h3>
             <p> Suite somptueuse, services exclusifs, vue imprenable pour <br> une élégance inégalée.</p>
-            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="reservation.php"> <button class="btn-reserver">reserver maintenant</button></a>
+            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="connexion.php"> <button class="btn-reserver">reserver maintenant</button></a>
         </div>
         </div>
     </section>
@@ -91,7 +91,7 @@ include("connecte.php");
             <h6>vivez dans le luxe</h6>
             <h1>decouvrez nos hotels de luxe</h1>
             <p>Découvrez Diamond Hotel : service impeccable, emplacements privilégiés, chambres luxueuses, gastronomie raffinée et installations de pointe pour un séjour mémorable alliant détente et exclusivité.</p>
-            <a href="detailChambre.php"><button class="gauche-btn1">nos chambres</button></a> <a href="reservation.php"><button class="gauche-btn2">Réserver une chambre</button></a>
+            <a href="detailChambre.php"><button class="gauche-btn1">nos chambres</button></a> <a href="connexion.php"><button class="gauche-btn2">Réserver une chambre</button></a>
         </div>
         <div class="droite">
             <a href="https://www.youtube.com/embed/DWRcNpR6Kdc"><img src="./img/video1.jpg" alt="" width="1500px" height="500px"></a>
