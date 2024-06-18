@@ -38,7 +38,7 @@ if (isset($_POST['submite'])) {
             echo $erreur;
         }
         ?>
-        <form action=" " method="post">
+        <form action="test.php" method="post">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="password">Mot de passe:</label><br>

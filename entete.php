@@ -1,6 +1,8 @@
+<?php
+    session_start();
+?>
+
 <header>
-
-
     <nav>
 
         <ul class="navigation">
@@ -20,10 +22,19 @@
             <li>
                 <a href="apropos.php">a propos</a>
             </li>
-            <li>
-                <a href="connexion.php">se connecter</a>
-            </li>
 
+            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>
+                <li>
+                    Bonjour, <?php echo htmlspecialchars($_SESSION['prenom']) . ' ' . htmlspecialchars($_SESSION['nom']); ?>
+                </li>
+                <li>
+                    <a href="logout.php">Se déconnecter</a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="connexion.php">Se connecter</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="burger">

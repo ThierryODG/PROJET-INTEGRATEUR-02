@@ -22,14 +22,7 @@
 
     <h1> nos differents hotels</h1>
     <section>
-        <div class="hotels">
-            <?php
-                foreach ($hotels as $hotel) {
-                    echo "<div class=\"hotel\"><img src=\"data:image/jpeg;base64," .base64_encode($hotel['photo']) . "\" alt=\"Image de l'hôtel\">
-                           <a href=\"hotel_profile.php\"> <h1>" . htmlspecialchars($hotel['nom']) . "</h1></a>
-                            <p>" . htmlspecialchars($hotel['description']) . "</p></div>";
-                }
-            ?>
+        <H1>Profile des hotels</H1>
         </div>
     </section>
 

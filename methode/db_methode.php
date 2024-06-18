@@ -457,35 +457,55 @@ use Dompdf\Options;
         }
     }
 
-    public static function login($email, $password) {
+    public static function login($email, $userPassword) {
         $servername = "localhost";
-        $username = "root";
-        $password = "";
+        $dbUsername = "root";
+        $dbPassword = "";
         $dbname = "gestion_hotel";
 
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Créer une connexion à la base de données
+        $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
 
-            $stmt = $conn->prepare("SELECT * FROM client WHERE email = :email");
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
-
-            if ($stmt->rowCount() == 1) {
-                $user = $stmt->fetch(PDO::FETCH_ASSOC);
-                if (password_verify($password, $user['password'])) {
-                    // Authentification réussie
-                    return true;
-                }
-            }
-            return false;
-        } catch(PDOException $e) {
-            echo "Erreur : " . $e->getMessage();
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        finally {
-            if ($conn) {
-                $conn = null;
+
+        // Préparer et exécuter la requête SQL
+        $stmt = $conn->prepare("SELECT email, password, nom, prenom FROM client WHERE email = ?");
+        if (!$stmt) {
+            die("Preparation failed: " . $conn->error);
+        }
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        // Vérifier si un utilisateur avec cet email existe
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($dbEmail, $dbPassword, $dbFirstName, $dbLastName);
+            $stmt->fetch();
+
+            // Vérifier le mot de passe
+            if ($userPassword == $dbPassword) {
+                // Authentification réussie
+                $_SESSION['email'] = $dbEmail;
+                $_SESSION['nom'] = $dbFirstName;
+                $_SESSION['prenom'] = $dbLastName;
+
+                $stmt->close();
+                $conn->close();
+                header("location:index.php");
+            } else {
+                // Mot de passe incorrect
+                $stmt->close();
+                $conn->close();
+                header("location:connexion.php");
             }
+        } else {
+            // Email non trouvé
+            $stmt->close();
+            $conn->close();
+            header("location:connexion.php");
         }
     }
 }

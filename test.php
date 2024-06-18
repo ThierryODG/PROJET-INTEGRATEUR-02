@@ -81,16 +81,17 @@
     //db_methode::add_responsable("Mare","Daouda","Masculin","07684843","daoudamare@gmail.com");
     */
 
-    $auth=db_methode::login("aziz@gmail.com","azizaziz");
-    echo $auth;
+    $mail=$_POST['email'];
+    $pass=$_POST['password'];
+    db_methode::login($mail,$pass);
+    /*
     if ($auth) {
-        echo "connexion reussi!!";
+        header('location:index.php');
     }
     else{
-        echo "connexion echouee!!";
-    }
-
-    
+        header('location:connexion.php');
+    } 
+    */
 
 ?>
 
