@@ -1,5 +1,5 @@
 <?php
-include("entete1.php");
+include("entete2.php");
 ?>
 <?php
 if (isset($_POST['submite'])) {
@@ -9,10 +9,10 @@ if (isset($_POST['submite'])) {
         $password = $_POST['password'];
         $erreur = "";
         include 'connecte.php';
-        $req = mysqli_query($con, "SELECT * FROM client WHERE email = '$email' AND password = '$password' ");
+        $req = mysqli_query($con, "SELECT * FROM responsable WHERE email = '$email' AND password = '$password' ");
         $num_ligne = mysqli_num_rows($req);
         if ($num_ligne > 0) {
-            header("location:accueilGuest.php");
+            header("location:accueilAdmin.php");
         } else {
             $erreur = "Email ou Mots de passe incorrectes.";
         }
@@ -47,7 +47,6 @@ if (isset($_POST['submite'])) {
         </form>
     </div>
 
-    <p>Vous n'avez pas de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.
 
 
         <style>

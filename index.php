@@ -16,8 +16,9 @@ include("connecte.php");
     <?php
     include("entete1.php");
     ?>
-
-
+     <a href="connexion1.php"> <div style="text-align: center;">
+    <strong>Page pour les responsables</strong>
+</div></a>
     <h4 class="who"> qui sommes-nous</h4>
     <h1 class="welcome">bienvenu chez <span>Diamond</span> </h1>
     <p class="para1"> où luxe et confort se rencontrent pour une expérience inoubliable. Réservez votre séjour et laissez-nous vous choyer dans l’éclat du luxe.</p>
@@ -58,9 +59,9 @@ include("connecte.php");
                                                                                     ?></h2>
 
     </div>
-    <button class="btn-savoir">contactez-nous
-        <a href="contact.php"></a>
-    </button>
+    <a href="contact.php">
+   <button class="btn-savoir">contactez-nous  
+    </button> </a>
 
     <h6 class="our-rooms">nos chambres</h6>
     <h1>explorez nos <span>chambres</span></h1>
