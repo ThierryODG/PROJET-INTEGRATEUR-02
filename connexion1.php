@@ -1,5 +1,5 @@
 <?php
-include("entete2.php");
+include("entete.php");
 ?>
 <?php
 if (isset($_POST['submite'])) {
@@ -49,59 +49,59 @@ if (isset($_POST['submite'])) {
 
 
 
-        <style>
-            .form h1 {
-                margin-top: 13px;
-            }
+    <style>
+        .form h1 {
+            margin-top: 13px;
+        }
 
-            p {
-                text-align: center;
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: large;
-                padding-bottom: 5%;
-                padding-top: 1%;
-            }
+        p {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            padding-bottom: 5%;
+            padding-top: 1%;
+        }
 
-            .form {
-                width: 300px;
-                margin: auto;
-                padding: 30px;
+        .form {
+            width: 300px;
+            margin: auto;
+            padding: 30px;
 
-            }
+        }
 
-            .form label {
-                display: block;
+        .form label {
+            display: block;
 
-            }
+        }
 
-            .form input[type="text"],
-            .form input[type="email"],
-            .form input[type="password"] {
-                width: 100%;
-                padding: 10px;
-                margin-top: 5px;
-            }
+        .form input[type="text"],
+        .form input[type="email"],
+        .form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
 
-            .form input[type="submit"] {
-                width: 100%;
-                padding: 10px;
-                background-color: blue;
-                color: white;
-                border: none;
-                margin-top: 20px;
-                cursor: pointer;
-            }
+        .form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
 
-            .form input[type="submit"]:hover {
-                background-color: darkblue;
-            }
+        .form input[type="submit"]:hover {
+            background-color: darkblue;
+        }
 
-            .form+P a {
+        .form+P a {
 
-                font-size: large;
-                font-weight: bold;
-            }
-        </style>
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
 
 
 </body>

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <header>
@@ -23,14 +23,14 @@
                 <a href="apropos.php">a propos</a>
             </li>
 
-            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>
+            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) : ?>
                 <li>
                     Bonjour, <?php echo htmlspecialchars($_SESSION['prenom']) . ' ' . htmlspecialchars($_SESSION['nom']); ?>
                 </li>
                 <li>
                     <a href="logout.php">Se déconnecter</a>
                 </li>
-            <?php else: ?>
+            <?php else : ?>
                 <li>
                     <a href="connexion.php">Se connecter</a>
                 </li>
@@ -51,7 +51,7 @@
         <h3>vivez dans le luxe</h3>
         <h1>Decouvrez nos hotels de luxe </h1>
         <a href="detailChambre.php"> <button class="btn1">NOS CHAMBRES</button></a>
-        <a href="reservation.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <a href="connexion.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
     </div>
 
 
