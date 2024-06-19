@@ -643,13 +643,11 @@ nav li h1 {
 .service-container {
     border: 0px solid green;
     width: 85%;
-    flex-wrap: wrap;
     min-width: 30%;
-    display: flex;
     margin-left: 10%;
-
-
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .service {
@@ -852,4 +850,10 @@ h1 {
     overflow-y: hidden;
     margin-bottom: 20px;
 
+}
+
+.conname{
+    color: white;
+    font-size: 20;
+    font-weight: bold;
 }

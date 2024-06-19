@@ -1,24 +1,9 @@
 <?php
-include("entete.php");
+    include("entete.php");
 ?>
-<?php
-if (isset($_POST['submite'])) {
 
-    if (isset($_POST['email']) &&  isset($_POST['password'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $erreur = "";
-        include 'connecte.php';
-        $req = mysqli_query($con, "SELECT * FROM client WHERE email = '$email' AND password = '$password' ");
-        $num_ligne = mysqli_num_rows($req);
-        if ($num_ligne > 0) {
-            header("location:accueilGuest.php");
-        } else {
-            $erreur = "Email ou Mots de passe incorrectes.";
-        }
-    }
-}
-?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +23,7 @@ if (isset($_POST['submite'])) {
             echo $erreur;
         }
         ?>
-        <form action="test.php" method="post">
+        <form action="connexionredirect.php" method="post">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="password">Mot de passe:</label><br>
