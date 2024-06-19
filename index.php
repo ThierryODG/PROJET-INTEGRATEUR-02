@@ -14,53 +14,12 @@ include("connecte.php");
 
 <body>
     <?php
-    include("entete1.php");
+    include("entete.php");
     ?>
-
 
     <h4 class="who"> qui sommes-nous</h4>
     <h1 class="welcome">bienvenu chez <span>Diamond</span> </h1>
-    <p class="para1"> où luxe et confort se rencontrent pour une expérience inoubliable. Réservez votre séjour et laissez-nous vous choyer dans l’éclat du luxe.</p>
-    <!-- recceuillir dans la bases de donnéé les donnée reelle et les pacé a la palce des nombres mis -->
-    <div class="Dashbord">
-        <h2> <img src="./img/logo_chambre.png" alt="logo chambre" height="55px"> <?php $requete = "SELECT COUNT(*) AS nombre_chambres FROM chambre";
-                                                                                    $resultat = mysqli_query($con, $requete);
-
-                                                                                    if ($resultat) {
-                                                                                        $row = mysqli_fetch_assoc($resultat);
-                                                                                        $nombre_chambres = $row['nombre_chambres'];
-                                                                                        echo "Chambre : $nombre_chambres";
-                                                                                    } else {
-                                                                                        echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
-                                                                                    }
-                                                                                    ?></h2>
-        <h2> <img src="./img/logo_personnel.png" alt="logo personnel" height="55px"> <?php $requete = "SELECT COUNT(*) AS nombre_personnel FROM agent_reception";
-                                                                                        $resultat = mysqli_query($con, $requete);
-
-                                                                                        if ($resultat) {
-                                                                                            $row = mysqli_fetch_assoc($resultat);
-                                                                                            $nombre_personnel = $row['nombre_personnel'];
-                                                                                            echo "personnel : $nombre_personnel";
-                                                                                        } else {
-                                                                                            echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
-                                                                                        }
-                                                                                        ?></h2>
-        <h2> <img src="./img/logo_client.png" alt="logo personnel" height="55px"> <?php $requete = "SELECT COUNT(*) AS nombre_client FROM client";
-                                                                                    $resultat = mysqli_query($con, $requete);
-
-                                                                                    if ($resultat) {
-                                                                                        $row = mysqli_fetch_assoc($resultat);
-                                                                                        $nombre_client = $row['nombre_client'];
-                                                                                        echo " Clientèle : $nombre_client";
-                                                                                    } else {
-                                                                                        echo "Erreur lors de l'exécution de la requête : " . mysqli_error($con);
-                                                                                    }
-                                                                                    ?></h2>
-
-    </div>
-    <button class="btn-savoir">contactez-nous
-        <a href="contact.php"></a>
-    </button>
+    <p class="para1"> où luxe et confort se rencontrent pour une expérience inoubliable. Réservez votre séjour et laissez-nous vous choyer dans l’éclat du luxe.</p><br><br><br>
 
     <h6 class="our-rooms">nos chambres</h6>
     <h1>explorez nos <span>chambres</span></h1>
@@ -81,8 +40,8 @@ include("connecte.php");
         <div class="container">
             <img src="./img/room-3.jpg" alt="">
             <h3>Deluxe</h3>
-            <p> Suite somptueuse, services exclusifs, <br>vue imprenable pour une élégance inégalée.</p>
-            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="reservation.php"> <button class="btn-reserver">reserver maintenant</button></a>
+            <p> Suite somptueuse, services exclusifs, vue imprenable <br> pour une élégance inégalée.</p>
+            <a href="detailChambre.php"> <button class="btn-detail">voir les details</button></a> <a href="connexion.php"> <button class="btn-reserver">reserver maintenant</button></a>
         </div>
         </div>
     </section>

@@ -23,8 +23,8 @@ if (isset($_POST['submit'])) {
     values('$nom','$prenom','$genre','$telephone','$email','$password','$cnib') ";
     $result = mysqli_query($con, $sql);
     $resultat = mysqli_query($con, $requete);
-    
-    if ($result && $resultat ) {
+
+    if ($result && $resultat) {
         //echo " Donnees inserees avec succes";
         header('location:displayr.php');
     } else {
@@ -48,22 +48,22 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php
-    include("entete.php");
+    include("entete1.php");
     ?>
 
     <h1>Réservation de Chambre</h1>
     <form action="process_reservation.php" method="post" class="form">
-        <label for="num_personnes">Nombre de personnes:</label>
-        <input type="number" id="num_personnes" name="nb_personne" required><br><br>
+        <label for="nb_personnes">Nombre de personnes:</label>
+        <input type="number" id="nb_personnes" name="nb_personne" required><br><br>
 
-        <label for="date_arrivee">Date d'arrivée:</label>
-        <input type="date" id="date_arrivee" name="date_arrive" required><br><br>
+        <label for="date_arrive">Date d'arrivée:</label>
+        <input type="date" id="date_arrive" name="date_arrive" required><br><br>
 
         <label for="date_depart">Date de départ:</label>
         <input type="date" id="date_depart" name="date_depart" required><br><br>
 
-        <label for="type_chambre">Type de chambre:</label>
-        <select id="type_chambre" name="type" required>
+        <label for="type">Type de chambre:</label>
+        <select id="type" name="type" required>
             <option value="simple">Chambre Simple</option>
             <option value="double">Chambre Double</option>
             <option value="triple">Chambre Triple</option>
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
             <option value="executive">executive</option>
             <option value="Studio">Studio</option>
             <option value="suite_junior">suite junior</option>
-            
+
         </select><br><br>
         <input type="checkbox" id="view" name="options[]" value="view">
         <label for="view">Chambre avec vue</label><br>

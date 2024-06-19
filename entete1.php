@@ -1,5 +1,5 @@
 <header>
-
+    <!-- entete pour les invités -->
 
     <nav>
 
@@ -9,19 +9,16 @@
             </li>
 
             <li>
-                <a href="index.php">Acceuil</a>
+                <a href="accueilGuest.php">Acceuil</a>
             </li>
             <li>
-                <a href="connexion.php">Hotels</a>
+                <a href="hotel.php">Hotels</a>
             </li>
             <li>
-                <a href="contact.php" contact.php>contact</a>
+                <a href="contactGuest.php" contact.php>contact</a>
             </li>
             <li>
-                <a href="apropos.php">a propos</a>
-            </li>
-            <li>
-                <a href="connexion.php">se connecter</a>
+                <a href="aproposGuest.php">a propos</a>
             </li>
 
         </ul>
@@ -40,9 +37,14 @@
         <h3>vivez dans le luxe</h3>
         <h1>Decouvrez nos hotels de luxe </h1>
         <a href="detailChambre.php"> <button class="btn1">NOS CHAMBRES</button></a>
-        <a href="connexion.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <a href="reservation.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
     </div>
 
 
 
 </section>
+<style>
+    nav {
+        overflow-y: hidden;
+    }
+</style>
