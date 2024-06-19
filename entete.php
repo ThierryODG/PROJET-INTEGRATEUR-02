@@ -14,7 +14,7 @@ session_start();
                 <a href="index.php">Acceuil</a>
             </li>
             <li>
-                <a href="connexion.php">Hotels</a>
+                <a href="hotel.php">Hotels</a>
             </li>
             <li>
                 <a href="contact.php" contact.php>contact</a>
@@ -23,7 +23,7 @@ session_start();
                 <a href="apropos.php">a propos</a>
             </li>
 
-            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) : ?>
+            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>
                 <li>
                     Bonjour, <?php echo htmlspecialchars($_SESSION['prenom']) . ' ' . htmlspecialchars($_SESSION['nom']); ?>
                 </li>
@@ -51,7 +51,7 @@ session_start();
         <h3>vivez dans le luxe</h3>
         <h1>Decouvrez nos hotels de luxe </h1>
         <a href="detailChambre.php"> <button class="btn1">NOS CHAMBRES</button></a>
-        <a href="connexion.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <a href="reservation.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
     </div>
 
 

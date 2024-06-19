@@ -350,7 +350,6 @@ use Dompdf\Options;
                 <h3>Information sur Hotel</h3>
                 <div class="box">
                     <p>Nom: </p>
-                    <p>Prenom: </p>
                     <p>Tel: </p>
                     <p>Email: </p>
                     <p>site: </p>
@@ -487,6 +486,7 @@ use Dompdf\Options;
 
             // Vérifier le mot de passe
             if ($userPassword == $dbPassword) {
+                session_start();
                 // Authentification réussie
                 $_SESSION['email'] = $dbEmail;
                 $_SESSION['nom'] = $dbFirstName;
