@@ -2,6 +2,8 @@
 
 
     include("./methode/db_methode.php");
+    $code= db_methode::genererCodeAleatoire();
+    echo $code;
     //db_methode::add_client("ouedraogo", "Aziz", "Masculin", "252545", "aziz@gmail.com", "azizaziz", "b452552");
     /*
     $id_client = 1;
@@ -78,8 +80,9 @@
   
   //db_methode::add_chambre(4,"disponible","wifi,vu, tele",65000,1);
   //db_methode::add_reservation(1,1,"12/05/2023",'24/07/2024',true,4);
-    //db_methode::add_responsable("Mare","Daouda","Masculin","07684843","daoudamare@gmail.com");
     */
+    //db_methode::add_responsable("Mare","Daouda","Masculin","daoudamare@gmail.com","adminn","07684843");
+
     /*
     $mail=$_POST['email'];
     $pass=$_POST['password'];
@@ -92,9 +95,10 @@
         header('location:connexion.php');
     } 
     */
-
+    /*
     session_start();
     echo $_SESSION["email"] . ".<br>";
+    */
 
 ?>
 

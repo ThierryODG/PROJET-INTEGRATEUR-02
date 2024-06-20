@@ -17,13 +17,14 @@
     <?php
     include("entete1.php");
     ?>
+    <?php echo $_SESSION['id'];?>
 
 <section>
     <div class="hotels">
     <?php foreach ($hotels as $hotel): ?>
         <div class="hotel">
             <img src="getimage.php?id=<?php echo $hotel['id']; ?>"/>
-            <a href="hotel_profile.php?id=<?php echo $hotel['id']; ?>"><h2><?php echo htmlspecialchars($hotel['nom']); ?></h2></a>
+            <a href="hotel_profile.php?id=<?php echo $hotel['id']; ?>&c_id=<?php echo $_SESSION['id']; ?>"><h2><?php echo htmlspecialchars($hotel['nom']); ?></h2></a>
             <p><?php echo htmlspecialchars($hotel['description']); ?></p>
         </div>
     <?php endforeach; ?>

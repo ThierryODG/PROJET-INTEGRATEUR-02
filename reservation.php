@@ -1,38 +1,5 @@
 <?php
 include 'connecte.php';
-if (isset($_POST['submit'])) {
-    $nb_personne = $_POST['nb_personne'];
-    $date_arrive = $_POST['date_arrive'];
-    $date_depart = $_POST['date_depart'];
-    $type = $_POST['type'];
-    $options = $_POST['options'];
-    $demande = $_POST['demande'];
-    $information = $_POST['information'];
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $genre = $_POST['genre'];
-    $telephone = $_POST['telephone'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $cnib = $_POST['cnib'];
-
-    $sql = "insert into reservation (nb_personne,date_arrive,date_depart,type,options,demande,information) 
-    values('$nb_personne','$date_arrive','$date_depart','$type','$options','$demande','$information')";
-
-    $requete = "insert into client (nom,prenom,genre,telephone,email,password,cnib) 
-    values('$nom','$prenom','$genre','$telephone','$email','$password','$cnib') ";
-    $result = mysqli_query($con, $sql);
-    $resultat = mysqli_query($con, $requete);
-
-    if ($result && $resultat) {
-        //echo " Donnees inserees avec succes";
-        header('location:displayr.php');
-    } else {
-        die(mysqli_error($con));
-    }
-}
-
-
 ?>
 
 
@@ -52,7 +19,7 @@ if (isset($_POST['submit'])) {
     ?>
 
     <h1>Réservation de Chambre</h1>
-    <form action="process_reservation.php" method="post" class="form">
+    <form action="reservationgenfact.php?h_id=<?php echo $_GET['id'];?>&cid=<?php echo $_GET['c_id'];?>" method="post" class="form">
         <label for="nb_personnes">Nombre de personnes:</label>
         <input type="number" id="nb_personnes" name="nb_personne" required><br><br>
 

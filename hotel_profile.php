@@ -23,7 +23,7 @@
     ?>
 
     <section>
-       <?php echo $id; ?>
+       <a href="reservation.php?id=<?php echo $id;?>&c_id=<?php echo $_GET['c_id']; ?>"> <button class="btn1">Reserver</button></a>
     </section>
 
     <?php

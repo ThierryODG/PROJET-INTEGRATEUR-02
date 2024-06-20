@@ -45,7 +45,7 @@ include 'connecte.php'; ?>
                         $adresse = $row['adresse'];
                         $categorie = $row['categorie'];
                         $emplacement = $row['emplacement'];
-                        $photo = $row['photo'];
+                        //$photo = $row['photo'];
                         $description = $row['description'];
                         $email = $row['email'];
                         $site = $row['site'];
@@ -55,7 +55,7 @@ include 'connecte.php'; ?>
             <td>' . $adresse . '</td>
             <td>' . $categorie . '</td>
             <td>' . $emplacement . '</td>
-            <td> ' . $photo . '</td>
+            <td> ' .Null.'</td>
             <td>' . $description . ' </td>
             <td> ' . $email . '</td>
             <td> ' . $site . '</td>

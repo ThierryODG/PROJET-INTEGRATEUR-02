@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
             <label for="emplacement">Emplacement:</label><br>
             <input type="text" id="emplacement" name="emplacement"><br>
             <label for="photo">Photo:</label><br>
-            <input type="blob" id="photo" name="photo"><br>
+            <input type="file" id="photo" name="photo"><br>
             <label for="description">Description:</label><br>
             <input type="text" id="description" name="description"><br>
             <label for="email">Email:</label><br>

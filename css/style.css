@@ -848,8 +848,8 @@ h1 {
 
 .containerD {
     border: 1px solid transparent;
-    margin-left: 19%;
-    height: 500px;
+    margin-left: 20px;
+    height: auto;
     width: fit-content;
     padding: 19px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;

@@ -18,7 +18,7 @@
                 <a href="chambreAdmin.php">chambres</a>
             </li>
             <li>
-                <a href="hotelAdmin.php">Hotels</a>
+                <a href="hotel.php">Hotels</a>
             </li>
 
             <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>

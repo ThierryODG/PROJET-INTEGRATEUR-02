@@ -1,23 +1,5 @@
 <?php
-include("entete.php");
-?>
-<?php
-if (isset($_POST['submite'])) {
-
-    if (isset($_POST['email']) &&  isset($_POST['password'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $erreur = "";
-        include 'connecte.php';
-        $req = mysqli_query($con, "SELECT * FROM responsable WHERE email = '$email' AND password = '$password' ");
-        $num_ligne = mysqli_num_rows($req);
-        if ($num_ligne > 0) {
-            header("location:accueilAdmin.php");
-        } else {
-            $erreur = "Email ou Mots de passe incorrectes.";
-        }
-    }
-}
+    include("entete.php");
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +20,7 @@ if (isset($_POST['submite'])) {
             echo $erreur;
         }
         ?>
-        <form action=" " method="post">
+        <form action="adminredirect.php" method="post">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="password">Mot de passe:</label><br>

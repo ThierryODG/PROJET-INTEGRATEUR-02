@@ -130,7 +130,7 @@ use Dompdf\Options;
             $conn = null;
         }
 
-        public static function add_reservation($id_client, $id_chambre, $date_arrive, $date_depart, $statut_confirmation, $nb_personne) {
+        public static function add_reservation($id_client, $id_hotel, $date_arrive, $date_depart, $statut_confirmation, $nb_personne) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
             $servername = "localhost";
             $username = "root";
@@ -143,12 +143,12 @@ use Dompdf\Options;
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
                 // Requête SQL préparée pour l'insertion
-                $stmt = $conn->prepare("INSERT INTO reservation (id_client, id_chambre, date_arrive, date_depart, statut_confirmation, nb_personne) 
-                                        VALUES (:id_client, :id_chambre, :date_arrive, :date_depart, :statut_confirmation, :nb_personne)");
+                $stmt = $conn->prepare("INSERT INTO reservation (id_client, id_hot$id_hotel, date_arrive, date_depart, statut_confirmation, nb_personne) 
+                                        VALUES (:id_client, :id_hot$id_hotel, :date_arrive, :date_depart, :statut_confirmation, :nb_personne)");
                 
                 // Liaison des paramètres
                 $stmt->bindParam(':id_client', $id_client);
-                $stmt->bindParam(':id_chambre', $id_chambre);
+                $stmt->bindParam(':id_hot$id_hotel', $id_hotel);
                 $stmt->bindParam(':date_arrive', $date_arrive);
                 $stmt->bindParam(':date_depart', $date_depart);
                 $stmt->bindParam(':statut_confirmation', $statut_confirmation);
@@ -166,7 +166,7 @@ use Dompdf\Options;
             $conn = null;
         }
 
-        public static function add_responsable($nom, $prenom, $genre, $telephone, $email, $password) {
+        public static function add_responsable($nom, $prenom, $genre, $email, $password, $telephone) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
             $servername = "localhost";
             $username = "root";
@@ -179,8 +179,8 @@ use Dompdf\Options;
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
                 // Requête SQL préparée pour l'insertion
-                $stmt = $conn->prepare("INSERT INTO client (nom, prenom, genre, telephone, email, password) 
-                                        VALUES (:nom, :prenom, :genre, :telephone, :email, :password)");
+                $stmt = $conn->prepare("INSERT INTO responsable (nom, prenom, genre, email, password, telephone) 
+                                        VALUES (:nom, :prenom, :genre, :email, :password, :telephone)");
                 
                 // Liaison des paramètres
                 $stmt->bindParam(':nom', $nom);
@@ -193,7 +193,7 @@ use Dompdf\Options;
                 // Exécution de la requête
                 $stmt->execute();
     
-                echo "Nouveau client ajouté avec succès";
+                echo "Nouveau responsable ajouté avec succès";
             } catch(PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
             }
@@ -297,140 +297,157 @@ use Dompdf\Options;
             }
         }
 
-    public static function genererfacturepdf($filename = 'Facture.pdf', $stream = true)
-    {
-        $html = '
-                <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Table d\'Hôtel</title>
-            <style>
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                th, td {
-                    border: 1px solid black;
-                    padding: 8px;
-                    text-align: left;
-                }
-                th {
-                    background-color: #f2f2f2;
-                }
+        public static function genererfacturepdf($client_id,$hotel_id ,$filename ='Facture.pdf', $stream = true)
+        {
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "gestion_hotel";
+        
+            try {
+                // Connexion à la base de données
+                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 
-                h2{
-                    background-color: #B5B72D;
-                    text-align:center;
-                    font: size 25px;
+        
+                // Requête SQL pour récupérer les informations sur l'hôtel
+                $stmt_hotel = $conn->prepare("SELECT nom, adresse, email, site FROM hotel WHERE id = :hotel_id");
+                $stmt_hotel->bindParam(':hotel_id', $hotel_id, PDO::PARAM_INT);
+                $stmt_hotel->execute();
+                $hotel = $stmt_hotel->fetch(PDO::FETCH_ASSOC);
+        
+                // Requête SQL pour récupérer les informations sur le client
+                $stmt_client = $conn->prepare("SELECT nom, prenom, telephone, email FROM client WHERE id = :client_id");
+                $stmt_client->bindParam(':client_id', $client_id, PDO::PARAM_INT);
+                $stmt_client->execute();
+                $client = $stmt_client->fetch(PDO::FETCH_ASSOC);
+        
+                // Génération du HTML pour la facture
+                $html = '
+                    <!DOCTYPE html>
+                    <html lang="fr">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Facture de réservation</title>
+                        <style>
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                            }
+                            th, td {
+                                border: 1px solid black;
+                                padding: 8px;
+                                text-align: left;
+                            }
+                            th {
+                                background-color: #f2f2f2;
+                            }
+                            h2, h3 {
+                                background-color: #B5B72D;
+                                text-align: center;
+                                padding: 10px;
+                                color: white;
+                            }
+                            .info {
+                                display: grid;
+                                grid-template-columns: repeat(2, 1fr);
+                                gap: 20px;
+                                margin-bottom: 20px;
+                            }
+                            .box {
+                                border: 1px solid #ccc;
+                                padding: 10px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h2>Facture de réservation</h2>
+                        <div class="info">
+                            <div>
+                                <h3>Informations sur l\'hôtel</h3>
+                                <div class="box">
+                                    <p><strong>Nom:</strong> ' . htmlspecialchars($hotel['nom']) . '</p>
+                                    <p><strong>Adresse:</strong> ' . htmlspecialchars($hotel['adresse']) . '</p>
+                                    <p><strong>Email:</strong> ' . htmlspecialchars($hotel['email']) . '</p>
+                                    <p><strong>Site web:</strong> ' . htmlspecialchars($hotel['site']) . '</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Informations sur le client</h3>
+                                <div class="box">
+                                    <p><strong>Nom:</strong> ' . htmlspecialchars($client['nom']) . '</p>
+                                    <p><strong>Prénom:</strong> ' . htmlspecialchars($client['prenom']) . '</p>
+                                    <p><strong>Téléphone:</strong> ' . htmlspecialchars($client['telephone']) . '</p>
+                                    <p><strong>Email:</strong> ' . htmlspecialchars($client['email']) . '</p>
+                                </div>
+                            </div>
+                        </div>
+                        <table>
+                            <caption><h3>Informations sur la réservation</h3></caption>
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Code Hôtel</th>
+                                    <th>Montant</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dupont</td>
+                                    <td>Jean</td>
+                                    <td>HTL123</td>
+                                    <td>200€</td>
+                                </tr>
+                                <tr>
+                                    <td>Martin</td>
+                                    <td>Marie</td>
+                                    <td>HTL124</td>
+                                    <td>150€</td>
+                                </tr>
+                                <tr>
+                                    <td>Durand</td>
+                                    <td>Pierre</td>
+                                    <td>HTL125</td>
+                                    <td>180€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </body>
+                    </html>
+                ';
+
+                // Initialiser Dompdf avec les options par défaut
+                $options = new Options();
+                $options->set('isHtml5ParserEnabled', true);
+                $options->set('isRemoteEnabled', true); // Autoriser les images distantes si nécessaire
+                $dompdf = new Dompdf($options);
+        
+                // Charger le HTML dans Dompdf
+                $dompdf->loadHtml($html);
+        
+                // Définir le format de papier et l'orientation
+                $dompdf->setPaper('A4', 'portrait');
+        
+                // Rendre le HTML en PDF
+                $dompdf->render();
+        
+                // Sortir le PDF dans le navigateur ou le sauvegarder sur le serveur
+                if ($stream) {
+                    // Sortie du PDF dans le navigateur
+                    $dompdf->stream($filename, ["Attachment" => false]);
+                } else {
+                    // Sauvegarde du fichier PDF sur le serveur
+                    file_put_contents($filename, $dompdf->output());
                 }
-
-                h3{
-                    background-color: #B5B72D;
-                }
-
-                .info {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr); /* Crée 2 colonnes de largeur égale */
-                    gap: 20px; /* Espace entre les colonnes */
-                }
-
-                
-
-                    
-            </style>
-        </head>
-        <body>
-
-        <h2>Facture de reservation</h2>
-
-        <div class="info">
-            <div>
-                <h3>Information sur Hotel</h3>
-                <div class="box">
-                    <p>Nom: </p>
-                    <p>Tel: </p>
-                    <p>Email: </p>
-                    <p>site: </p>
-                </div>
-            </div>
-
-            <div>
-                <h3>Information sur client</h3>
-                <div class="box">
-                    <p>Nom: </p>
-                    <p>Prenom: </p>
-                    <p>Tel: </p>
-                    <p>Email: </p>
-                </div>
-            </div>
-
-        </div>
-
-        <table>
-
-            <caption ><h3>Informations des Clients</h3></caption>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Chambre</th>
-                    <th>Code Hôtel</th>
-                    <th>Montant</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Dupont</td>
-                    <td>Jean</td>
-                    <td>101</td>
-                    <td>HTL123</td>
-                    <td>200€</td>
-                </tr>
-                <tr>
-                    <td>Martin</td>
-                    <td>Marie</td>
-                    <td>102</td>
-                    <td>HTL124</td>
-                    <td>150€</td>
-                </tr>
-                <tr>
-                    <td>Durand</td>
-                    <td>Pierre</td>
-                    <td>103</td>
-                    <td>HTL125</td>
-                    <td>180€</td>
-                </tr>
-            </tbody>
-        </table>
-
-        </body>
-        </html>
-        ';
-        // Initialiser Dompdf avec les options par défaut
-        $options = new Options();
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isRemoteEnabled', true); // Pour autoriser les images distantes
-        $dompdf = new Dompdf($options);
-
-        // Charger le HTML dans Dompdf
-        $dompdf->loadHtml($html);
-
-        // (Optionnel) Définir le format de papier et l'orientation
-        $dompdf->setPaper('A4', 'portrait');
-
-        // Render le HTML comme PDF
-        $dompdf->render();
-
-        if ($stream) {
-            // Sortie du PDF dans le navigateur
-            $dompdf->stream($filename, ["Attachment" => false]);
-        } else {
-            // Sauvegarde le fichier PDF
-            file_put_contents($filename, $dompdf->output());
+            } catch(PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+            } finally {
+                // Fermer la connexion PDO
+                $conn = null;
+            }
         }
-    }
 
     public static function getHotels() {
         $servername = "localhost";
@@ -471,7 +488,62 @@ use Dompdf\Options;
         }
 
         // Préparer et exécuter la requête SQL
-        $stmt = $conn->prepare("SELECT email, password, nom, prenom FROM client WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id,email, password, nom, prenom FROM client WHERE email = ?");
+        if (!$stmt) {
+            die("Preparation failed: " . $conn->error);
+        }
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        // Vérifier si un utilisateur avec cet email existe
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($id_client,$dbEmail, $dbPassword, $dbFirstName, $dbLastName);
+            $stmt->fetch();
+
+            // Vérifier le mot de passe
+            if ($userPassword == $dbPassword) {
+                session_start();
+                // Authentification réussie
+                $_SESSION['email'] = $dbEmail;
+                $_SESSION['nom'] = $dbFirstName;
+                $_SESSION['prenom'] = $dbLastName;
+                $_SESSION['prenom']=$id_client;
+
+                $stmt->close();
+                $conn->close();
+                header("location:index.php");
+            } else {
+                // Mot de passe incorrect
+                $stmt->close();
+                $conn->close();
+                header("location:connexion.php");
+            }
+        } else {
+            // Email non trouvé
+            $stmt->close();
+            $conn->close();
+            header("location:connexion.php");
+        }
+    }
+
+
+    public static function loginResponsable($email, $userPassword) {
+        $servername = "localhost";
+        $dbUsername = "root";
+        $dbPassword = "";
+        $dbname = "gestion_hotel";
+
+        // Créer une connexion à la base de données
+        $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Préparer et exécuter la requête SQL
+        $stmt = $conn->prepare("SELECT email, password, nom, prenom FROM responsable WHERE email = ?");
         if (!$stmt) {
             die("Preparation failed: " . $conn->error);
         }
@@ -494,19 +566,30 @@ use Dompdf\Options;
 
                 $stmt->close();
                 $conn->close();
-                header("location:index.php");
+                header("location:accueilAdmin.php");
             } else {
                 // Mot de passe incorrect
                 $stmt->close();
                 $conn->close();
-                header("location:connexion.php");
+                header("location:connexion1.php");
             }
         } else {
             // Email non trouvé
             $stmt->close();
             $conn->close();
-            header("location:connexion.php");
+            header("location:connexion1.php");
         }
+    }
+
+
+    public static function genererCodeAleatoire($longueur = 15) {
+        // Générer des octets aléatoires
+        $bytes = random_bytes($longueur);
+    
+        // Convertir les octets en une chaîne hexadécimale
+        $hex = bin2hex($bytes);
+        // Retourner les premiers caractères (longueur spécifiée)
+        return substr($hex, 0, $longueur);
     }
 }
 ?>
