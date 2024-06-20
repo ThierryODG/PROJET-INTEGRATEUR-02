@@ -8,8 +8,9 @@ include("connecte.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index.php</title>
     <link rel="stylesheet" href="./css/style.css">
+    <title>index.php</title>
+    
 </head>
 
 <body>
@@ -60,10 +61,22 @@ include("connecte.php");
     </div>
 
     <?php
-    include('displayc.php');
+    include('displayAd.php');
+
     ?>
+    <?php
+    include('displayh.php');
 
+    ?>
+    <br><br>
+    <a href="inscription2.php" class="lienAD"> enregistrer Client</a> <a href="ajouthotel.php"> ajouter Hotel</a>
 
+    <style>
+        .lienAD {
+            margin-left: 40%;
+            margin-right: 5%;
+        }
+    </style>
     <?php
     include('pied_de_page.php');
     ?>

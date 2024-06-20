@@ -420,6 +420,8 @@ nav li h1 {
     width: 270px;
     padding: 20px 45px 45px 45px;
     padding-left: 15px;
+    margin: 10px;
+    margin-left: 20px;
 
 
 }
@@ -432,7 +434,7 @@ nav li h1 {
 
 .Dashbord {
     display: flex;
-    padding-left: 23%;
+    padding-left: 22%;
     padding-top: 30px;
 
 
