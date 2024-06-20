@@ -10,7 +10,7 @@ include("connecte.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>index.php</title>
-    
+
 </head>
 
 <body>
@@ -21,7 +21,7 @@ include("connecte.php");
 
     <br>
     <h1 class="welcome">bienvenu chez <span>Diamond</span> Admin </h1>
-    <p class="para1">cette page est réservée au administrateur </p>
+    <p class="para1">cette page est réservée aux administrateurs </p>
     <!-- recceuillir dans la bases de donnéé les donnée reelle et les pacé a la palce des nombres mis -->
     <div class="Dashbord">
         <h2> <img src="./img/logo_chambre.png" alt="logo chambre" height="55px"> <?php $requete = "SELECT COUNT(*) AS nombre_chambres FROM chambre";
