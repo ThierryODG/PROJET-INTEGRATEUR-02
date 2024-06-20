@@ -5,11 +5,14 @@
         $nb_personne = $_POST['nb_personne'];
         $date_arrive = $_POST['date_arrive'];
         $date_depart = $_POST['date_depart'];
+        $type = $_POST['type'];
+        $nb_perso = $_POST['nb_personne'];
+        $option = $_POST['options'];
 
         $id_client=$_GET['cid'];
         $id_hotel=$_GET['h_id'];
     
         db_methode::add_reservation($id_client,$id_hotel,$date_arrive,$date_depart,1,$nb_personne);
-        db_methode::genererfacturepdf($id_client,$id_hotel);
+        db_methode::genererfacturepdf($id_client,$id_hotel,$type,$nb_perso,$option);
     }
 ?>

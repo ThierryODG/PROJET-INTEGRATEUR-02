@@ -45,19 +45,19 @@ include 'connecte.php';
             <option value="suite_junior">suite junior</option>
 
         </select><br><br>
-        <input type="checkbox" id="view" name="options[]" value="view">
+        <input type="checkbox" id="view" name="options[]" value="chambre avec vu">
         <label for="view">Chambre avec vue</label><br>
 
-        <input type="checkbox" id="ground_floor" name="options[]" value="ground_floor">
+        <input type="checkbox" id="ground_floor" name="options[]" value="Rez de chaussee">
         <label for="ground_floor">Située en rez-de-chaussée</label><br>
 
-        <input type="checkbox" id="tv_channels" name="options[]" value="tv_channels">
+        <input type="checkbox" id="tv_channels" name="options[]" value="Television">
         <label for="tv_channels">Écran de télévision avec chaînes supplémentaires</label><br>
 
         <input type="checkbox" id="wifi" name="options[]" value="wifi">
         <label for="wifi">Accès au Wi-Fi</label><br>
 
-        <input type="checkbox" id="breakfast" name="options[]" value="breakfast">
+        <input type="checkbox" id="breakfast" name="options[]" value="petit dejeuner">
         <label for="breakfast">Petit déjeuner sur place</label><br><br>
 
         <label for="special_requests">Demandes particulières :</label><br>
