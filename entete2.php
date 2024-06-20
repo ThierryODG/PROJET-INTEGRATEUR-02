@@ -1,6 +1,8 @@
+<?php
+    session_start();
+?>
+
 <header>
-
-
     <nav>
 
         <ul class="navigation">
@@ -19,8 +21,18 @@
                 <a href="hotelAdmin.php">Hotels</a>
             </li>
 
-
-
+            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>
+                <li class="conname">
+                    <?php echo htmlspecialchars($_SESSION['prenom']) . ' ' . htmlspecialchars($_SESSION['nom']); ?>
+                </li>
+                <li>
+                    <a href="logout.php">Se déconnecter</a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="connexion.php">Se connecter</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="burger">

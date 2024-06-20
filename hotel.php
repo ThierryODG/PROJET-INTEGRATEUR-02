@@ -1,7 +1,6 @@
 <?php
-require_once './methode/db_methode.php';
-
-$hotels = db_methode::getHotels();
+    require_once './methode/db_methode.php';
+    $hotels = db_methode::getHotels();
 ?>
 
 <!DOCTYPE html>
@@ -19,29 +18,20 @@ $hotels = db_methode::getHotels();
     include("entete1.php");
     ?>
 
-    <h1> nos differents hotels</h1>
-    <section>
-        <div class="hotels">
-            <?php
-                foreach ($hotels as $hotel) {
-                    echo "<div class=\"hotel\"><img src=\"data:image/jpeg;base64," .base64_encode($hotel['photo']) . "\" alt=\"Image de l'hôtel\">
-                           <a href=\"hotel_profile.php\"> <h1>" . htmlspecialchars($hotel['nom']) . "</h1></a>
-                            <p>" . htmlspecialchars($hotel['description']) . "</p></div>";
-                }
-            ?>
+<section>
+    <div class="hotels">
+    <?php foreach ($hotels as $hotel): ?>
+        <div class="hotel">
+            <img src="getimage.php?id=<?php echo $hotel['id']; ?>"/>
+            <a href="hotel_profile.php?id=<?php echo $hotel['id']; ?>"><h2><?php echo htmlspecialchars($hotel['nom']); ?></h2></a>
+            <p><?php echo htmlspecialchars($hotel['description']); ?></p>
         </div>
-    </section>
+    <?php endforeach; ?>
+    </div>
+</section>
 
-    <?php
-    include("pied_de_page.php");
-    ?>
-</body>
 <?php
-// foreach ($hotels as $hotel) {
-//     echo "<div class=\"hotel\"><img src=\"data:image/jpeg;base64," . base64_encode($hotel['photo']) . "\" alt=\"Image de l'hôtel\">
-//             <h1>" . htmlspecialchars($hotel['nom']) . "</h1>
-//             <p>" . htmlspecialchars($hotel['description']) . "</p></div>";
-// }
+    include("pied_de_page.php");
 ?>
-
+</body>
 </html>

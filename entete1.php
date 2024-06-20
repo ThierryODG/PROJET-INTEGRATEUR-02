@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <header>
     <!-- entete pour les invités -->
 
@@ -21,6 +24,19 @@
                 <a href="aproposGuest.php">a propos</a>
             </li>
 
+            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>
+                <li class="conname">
+                    <?php echo htmlspecialchars($_SESSION['prenom']) . ' ' . htmlspecialchars($_SESSION['nom']); ?>
+                </li>
+                <li>
+                    <a href="logout.php">Se déconnecter</a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="connexion.php">Se connecter</a>
+                </li>
+            <?php endif; ?>
+
         </ul>
     </nav>
     <div class="burger">
@@ -36,8 +52,11 @@
     <div>
         <h3>vivez dans le luxe</h3>
         <h1>Decouvrez nos hotels de luxe </h1>
-        <a href="detailChambre.php"> <button class="btn1">NOS CHAMBRES</button></a>
-        <a href="reservation.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])): ?>
+            <a href="hotel.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <?php else:?>
+            <a href="connexion.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>
+        <?php endif; ?>
     </div>
 
 

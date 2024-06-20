@@ -831,6 +831,11 @@ h1 {
     border: 1px dashed black;
 }
 
+.hotel a{
+    text-decoration: none;
+    list-style: none;
+}
+
 .hotels {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

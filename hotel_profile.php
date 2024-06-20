@@ -3,6 +3,8 @@
     require_once './methode/db_methode.php';
 
     $hotels = db_methode::getHotels();
+
+    $id=$_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +22,8 @@
     include("entete.php");
     ?>
 
-    <h1> nos differents hotels</h1>
     <section>
-        <H1>Profile des hotels</H1>
-        </div>
+       <?php echo $id; ?>
     </section>
 
     <?php

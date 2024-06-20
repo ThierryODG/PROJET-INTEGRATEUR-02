@@ -437,24 +437,24 @@ use Dompdf\Options;
         $username = "root";
         $password = "";
         $dbname = "gestion_hotel";
-
+    
         try {
             $conn = new PDO("mysql:host=" . $servername . ";dbname=" . $dbname, $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $stmt = $conn->prepare("SELECT nom, description, photo FROM hotel");
+    
+            $stmt = $conn->prepare("SELECT id, nom, description, photo FROM hotel");
             $stmt->execute();
-
+    
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             echo "Erreur : " . $e->getMessage();
-        }
-        finally {
+        } finally {
             if ($conn) {
                 $conn = null;
             }
         }
     }
+    
 
     public static function login($email, $userPassword) {
         $servername = "localhost";
