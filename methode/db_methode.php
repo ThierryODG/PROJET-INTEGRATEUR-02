@@ -501,7 +501,7 @@ use Dompdf\Options;
                 $_SESSION['email'] = $dbEmail;
                 $_SESSION['nom'] = $dbFirstName;
                 $_SESSION['prenom'] = $dbLastName;
-                $_SESSION['prenom']=$id_client;
+                $_SESSION['id']=$id_client;
 
                 $stmt->close();
                 $conn->close();
