@@ -55,7 +55,7 @@
             if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
                 $current_page = basename($_SERVER['PHP_SELF']);
             // Si l'utilisateur est connecté
-                if ($current_page == 'hotel.php') {
+                if ($current_page == 'hotel.php' || $current_page == 'hotel_profile.php') {
                     // Si l'utilisateur est sur la page hotel.php
                     echo '<a href="reservationlist.php.php"><button class="btn2">Voir mes reservations</button></a>';
                 } else {
