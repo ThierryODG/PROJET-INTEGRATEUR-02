@@ -864,3 +864,19 @@ h1 {
     font-size: 20;
     font-weight: bold;
 }
+
+.reservationlist{
+    border: 1px solid black;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.no_reserve{
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+}

@@ -36,6 +36,12 @@
             </div>
         </a>
 
+        <a href="connexionAgent.php">
+            <div style="text-align: center;">
+                <strong>connexion Agent</strong>
+            </div>
+        </a>
+
 
         <style>
             .form h1 {

@@ -130,41 +130,43 @@ use Dompdf\Options;
             $conn = null;
         }
 
-        public static function add_reservation($id_client, $id_hotel, $date_arrive, $date_depart, $statut_confirmation, $nb_personne) {
-            // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "gestion_hotel";
-    
-            try {
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                // Configuration de PDO pour lever les exceptions en cas d'erreur
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-                // Requête SQL préparée pour l'insertion
-                $stmt = $conn->prepare("INSERT INTO reservation (id_client, id_hot$id_hotel, date_arrive, date_depart, statut_confirmation, nb_personne) 
-                                        VALUES (:id_client, :id_hot$id_hotel, :date_arrive, :date_depart, :statut_confirmation, :nb_personne)");
-                
-                // Liaison des paramètres
-                $stmt->bindParam(':id_client', $id_client);
-                $stmt->bindParam(':id_hot$id_hotel', $id_hotel);
-                $stmt->bindParam(':date_arrive', $date_arrive);
-                $stmt->bindParam(':date_depart', $date_depart);
-                $stmt->bindParam(':statut_confirmation', $statut_confirmation);
-                $stmt->bindParam(':nb_personne', $nb_personne);
-    
-                // Exécution de la requête
-                $stmt->execute();
-    
-                echo "Nouvelle réservation ajoutée avec succès";
-            } catch(PDOException $e) {
-                echo "Erreur : " . $e->getMessage();
-            }
-    
-            // Fermeture de la connexion
-            $conn = null;
+            public static function add_reservation($id_client, $id_hotel, $date_arrive, $date_depart, $statut_confirmation, $nb_personne) {
+                // Informations de connexion à la base de données
+                $servername = "localhost";
+                $username = "root";
+                $passwordDb = ""; // Nom différent pour éviter conflit avec le paramètre $password
+                $dbname = "gestion_hotel";
+        
+                try {
+                    // Connexion à la base de données
+                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $passwordDb);
+                    // Configuration de PDO pour lever les exceptions en cas d'erreur
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+                    // Requête SQL préparée pour l'insertion
+                    $stmt = $conn->prepare("INSERT INTO reservation (id_client, id_hotel, date_arrive, date_depart, statut_confirmation, nb_personne) 
+                                            VALUES (:id_client, :id_hotel, :date_arrive, :date_depart, :statut_confirmation, :nb_personne)");
+        
+                    // Liaison des paramètres
+                    $stmt->bindParam(':id_client', $id_client);
+                    $stmt->bindParam(':id_hotel', $id_hotel);
+                    $stmt->bindParam(':date_arrive', $date_arrive);
+                    $stmt->bindParam(':date_depart', $date_depart);
+                    $stmt->bindParam(':statut_confirmation', $statut_confirmation);
+                    $stmt->bindParam(':nb_personne', $nb_personne);
+        
+                    // Exécution de la requête
+                    $stmt->execute();
+        
+                    echo "Nouvelle réservation ajoutée avec succès";
+                } catch(PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+        
+               // Fermeture de la connexion
+                $conn = null;
         }
+        
 
         public static function add_responsable($nom, $prenom, $genre, $email, $password, $telephone) {
             // Votre code pour se connecter à la base de données et exécuter la requête d'insertion
@@ -215,7 +217,7 @@ use Dompdf\Options;
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
                 // Requête SQL préparée pour l'insertion
-                $stmt = $conn->prepare("INSERT INTO client (nom, prenom, genre, telephone, email, password, cnib) 
+                $stmt = $conn->prepare("INSERT INTO agent_reception (nom, prenom, genre, telephone, email, password, cnib) 
                                         VALUES (:nom, :prenom, :genre, :telephone, :email, :password, :cnib)");
                 
                 // Liaison des paramètres
@@ -230,7 +232,7 @@ use Dompdf\Options;
                 // Exécution de la requête
                 $stmt->execute();
     
-                echo "Nouveau client ajouté avec succès";
+                echo "Nouveau agent ajouté avec succès";
             } catch(PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
             }
@@ -584,5 +586,116 @@ use Dompdf\Options;
         // Retourner les premiers caractères (longueur spécifiée)
         return substr($hex, 0, $longueur);
     }
+
+    public static function getReservationsByClientId($clientId) {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "gestion_hotel";
+    
+        try {
+            $conn = new PDO("mysql:host=" . $servername . ";dbname=" . $dbname, $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * FROM reservation WHERE id_client = :clientId");
+            $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return [];
+        }
+    }
+
+    public static function gethotelname($h_id){
+    
+        // Informations de connexion à la base de données
+        $servername = "localhost"; // Nom du serveur (généralement localhost)
+        $username = "root"; // Nom d'utilisateur de la base de données
+        $password = ""; // Mot de passe de la base de données
+        $dbname = "gestion_hotel"; // Nom de la base de données
+
+        // Créer une connexion
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("Échec de la connexion : " . $conn->connect_error);
+        }
+
+        // ID de l'hôtel que vous souhaitez récupérer
+        $hotel_id = $h_id; // Remplacez par l'ID réel de l'hôtel
+
+        // Préparer la requête SQL
+        $sql = "SELECT nom FROM hotel WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $hotel_id);
+        $stmt->execute();
+        $stmt->bind_result($hotel_name);
+        $stmt->fetch();
+
+        // Vérifier si un nom d'hôtel a été trouvé
+        if ($hotel_name) {
+            echo $hotel_name;
+        } else {
+            echo "Aucun hôtel trouvé avec l'ID " . $hotel_id;
+        }
+
+        // Fermer la déclaration et la connexion
+        $stmt->close();
+        $conn->close();
+    }
+
+    public static function deleteReservation($reservationId) {
+        // Connexion à la base de données
+        $conn = new mysqli("localhost", "root", "", "gestion_hotel");
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Préparer la requête de suppression
+        $sql = "DELETE FROM reservation WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+
+        // Vérifier si la préparation de la requête a réussi
+        if ($stmt === false) {
+            die("Erreur de préparation de la requête : " . $conn->error);
+        }
+
+        $stmt->bind_param("i", $reservationId);
+        $stmt->execute();
+
+        // Fermer la déclaration et la connexion
+        $stmt->close();
+        $conn->close();
+    }
+
+    public static function confirmReservation($reservationId) {
+        // Connexion à la base de données
+        $conn = new mysqli("localhost", "root", "", "gestion_hotel");
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Préparer la requête de mise à jour
+        $sql = "UPDATE reservation SET statut_confirmation = 1 WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+
+        // Vérifier si la préparation de la requête a réussi
+        if ($stmt === false) {
+            die("Erreur de préparation de la requête : " . $conn->error);
+        }
+
+        $stmt->bind_param("i", $reservationId);
+        $stmt->execute();
+
+        // Fermer la déclaration et la connexion
+        $stmt->close();
+        $conn->close();
+    }
+
 }
 ?>
