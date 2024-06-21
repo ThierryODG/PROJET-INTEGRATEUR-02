@@ -18,21 +18,21 @@
             <img src="./img/chambreSimple.jpg" alt="" height="400" width="600">
             <h3>chambre simple</h3>
             <p>
-                cette chambre offre les commodités les plus basiques mais garde le confort minimum pour un sejour agréable
+                cette chambre offre les commodités les plus basiques mais garde le confort minimum pour un séjour agréable
             </p>
         </div>
         <div class="conteneur">
             <img src="./img/chambreMilieu.jpg" alt="" height="400" width="600">
             <h3>chambre millieu de gamme</h3>
             <p>
-                cette chambre offre un confort plus poussé nottament grace a la presence d'un ecran de television 4k
+                cette chambre offre un confort plus poussé nottament grace a la presence d'un écran de télévision 4k
             </p>
         </div>
         <div class="conteneur">
             <img src="./img/chambreLuxepg.jpg" alt="" height="400" width="600">
             <h3>chambre de luxe</h3>
             <p>
-                avec cette chambre vous vous sentirez comme au paradis ! elle dispose de toutes les commodité
+                Avec cette chambre vous vous sentirez comme au paradis ! elle dispose de toutes les commodité
                 que le rois que vous etes pourrait désirer ! nottament un lis en soie , un ecran de television 8k une ps5..
             </p>
         </div>
@@ -41,8 +41,8 @@
             <img src="./img/chambreExecutive.jpg" alt="" height="400" width="600">
             <h3>chambre executive</h3>
             <p>
-                ce type de chambres vous donnera droit a notre nec plus ultra en terme de confort , ce type de chambres ont étés concue par les meilleurs
-                architectes Africains, elle dispose de tout ce dont vous revez
+                ce type de chambres vous donnera droit a notre nec plus ultra en terme de confort , elles ont étés concue par les meilleurs
+                architectes Africains, et disposent de tout ce dont vous revez
                 et bien plus encore
 
             </p>

@@ -1,10 +1,9 @@
-
 <?php
-    require_once './methode/db_methode.php';
+require_once './methode/db_methode.php';
 
-    $hotels = db_methode::getHotels();
+$hotels = db_methode::getHotels();
 
-    $id=$_GET['id'];
+$id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +22,11 @@
     ?>
 
     <section>
-       <a href="reservation.php?id=<?php echo $id;?>&c_id=<?php echo $_GET['c_id']; ?>"> <button class="btn1">Reserver</button></a>
+        <a href="reservation.php?id=<?php echo $id; ?>&c_id=<?php echo $_GET['c_id']; ?>"> <button class="btn1">Reserver</button></a>
     </section>
 
     <?php
-        include("pied_de_page.php");
+    include("pied_de_page.php");
     ?>
 </body>
 
