@@ -10,6 +10,9 @@
             $num_ligne = mysqli_num_rows($req);
             if ($num_ligne > 0) {
                 header("location:accueilAgent.php");
+                //session_start();
+
+                //$_SESSION[]=
             } else {
                 $erreur = "Email ou Mots de passe incorrectes.";
             }

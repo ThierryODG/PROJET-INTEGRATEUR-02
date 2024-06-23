@@ -1,6 +1,8 @@
 <?php
 include 'connecte.php';
 if (isset($_POST['submit'])) {
+    $id_client = $_POST['id_client'];
+    $id_hotel = $_POST['id_hotel'];
     $nb_personne = $_POST['nb_personne'];
     $date_arrive = $_POST['date_arrive'];
     $date_depart = $_POST['date_depart'];
@@ -17,8 +19,9 @@ if (isset($_POST['submit'])) {
     $cnib = $_POST['cnib'];
 
     include("./methode/db_methode.php");
-     
-    //db_methode::add_reservation("diakite", "Fadila","feminin", "+22665646123", "fadila@gmail.com", "fadila","b745896");
+    db_methode::add_reservation($id_client, $id_hotel,$date_arrive, $date_depart, 0, $nb_personne);
+    db_methode::genererfacturepdf($id_client,$id_hotel,$type,$nb_personne,$options);
+
     /*
     $sql = "insert into reservation (nb_personne,date_arrive,date_depart,type,options,demande,information) 
     values('$nb_personne','$date_arrive','$date_depart','$type','$options','$demande','$information')";
@@ -58,6 +61,13 @@ if (isset($_POST['submit'])) {
 
     <h1>Réservation de Chambre</h1>
     <form action="process_reservation.php" method="post" class="form">
+
+        <label for="nb_personnes">Identifiant du client:</label>
+        <input type="number" id="id" name="id_client" required><br><br>
+
+        <label for="nb_personnes">Identifiant du Hotel:</label>
+        <input type="number" id="id" name="id_hotel" required><br><br>
+
         <label for="nb_personnes">Nombre de personnes:</label>
         <input type="number" id="nb_personnes" name="nb_personne" required><br><br>
 
@@ -83,6 +93,7 @@ if (isset($_POST['submit'])) {
             <option value="suite_junior">suite junior</option>
 
         </select><br><br>
+    
         <input type="checkbox" id="view" name="options[]" value="view">
         <label for="view">Chambre avec vue</label><br>
 

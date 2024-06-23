@@ -79,15 +79,11 @@ include 'connecte.php';
             <option value="other">Autre</option>
         </select><br><br>
 
-
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
         <label for="telephone">Numéro de téléphone:</label>
         <input type="text" id="telephone" name="telephone" required><br><br>
-
-        <label for="telephone">Mot de passe:</label>
-        <input type="text" id="password" name="password" required><br><br>
 
         <label for="paiement">Informations de paiement:</label>
         <input type="text" id="paiement" name="paiement" required><br><br>

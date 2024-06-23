@@ -61,7 +61,7 @@ include("connecte.php");
     </div>
 
     <?php
-    include('displayAd.php');
+    include('displayAgent.php');
 
     ?>
     <?php

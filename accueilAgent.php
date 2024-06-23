@@ -61,10 +61,16 @@
     </div>
 
     <?php
-    include('displayRagent.php');
+        include('displayRagent.php');
 
     ?>
     <br><br>
+
+    <?php
+        include('displayc.php');
+
+    ?>
+       <br><br>
     <a href="reservationAgent.php" class="lienAD"> Reserver chambre</a> 
 
     <style>

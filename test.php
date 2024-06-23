@@ -16,7 +16,7 @@
     
 
     //db_methode::add_client("Mare","Daouda","Masculin","07684843","daoudamare19@gmail.com","daouda005","b11406390");
-    //db_methode::genererfacturepdf();
+    db_methode::genererfacturepdf(7,5,"standrt",2,"wifi");
     /*
     $to = 'daoudamare19@gmail.com';
     $subject = 'Code de Reservation';
@@ -81,7 +81,7 @@
     */
     //db_methode::add_responsable("Mare","Daouda","Masculin","daoudamare@gmail.com","adminn","07684843");
     //db_methode::add_reservation(7,1,"12/05/2023",'24/07/2024',true,4);
-    db_methode::add_agent_reception("diakite", "Fadila","feminin", "+22665646123", "fadila@gmail.com", "fadila","b745896")
+    //db_methode::add_agent_reception("diakite", "Fadila","feminin", "+22665646123", "fadila@gmail.com", "fadila","b745896")
 
     /*
     $mail=$_POST['email'];

@@ -26,7 +26,6 @@ include 'connecte.php'; ?>
                     <th scope="col">Adresse</th>
                     <th scope="col">Categorie</th>
                     <th scope="col">Emplacement</th>
-                    <th scope="col">Photo</th>
                     <th scope="col">Description</th>
                     <th scope="col">Email</th>
                     <th scope="col">Site</th>
@@ -55,7 +54,6 @@ include 'connecte.php'; ?>
             <td>' . $adresse . '</td>
             <td>' . $categorie . '</td>
             <td>' . $emplacement . '</td>
-            <td> ' .Null.'</td>
             <td>' . $description . ' </td>
             <td> ' . $email . '</td>
             <td> ' . $site . '</td>

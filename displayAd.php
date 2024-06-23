@@ -13,9 +13,6 @@ include 'connecte.php'; ?>
     <title>Resultat</title>
 
 <body>
-    <?php
-    //include("entete.php");
-    ?>
     <div class="containerD">
         <button class="btn btn-primary my-5"><a href="inscription2.php" class="text-light">Ajouter utilisateur</a></button>
         <table class="table">
@@ -56,7 +53,6 @@ include 'connecte.php'; ?>
             <td> ' . $email . '</td>
             <td>' . $password . ' </td>
             <td> ' . $cnib . '</td>
-            
             <td>
             <button class="btn btn-primary"><a href="modifier3.php?modifieid=' . $id . '" class="text-light">Modifier</a></button>
             <button class="btn btn-danger"><a href="supprimer3.php?supprimeid=' . $id . '" class="text-light">Supprimer</a></button>
