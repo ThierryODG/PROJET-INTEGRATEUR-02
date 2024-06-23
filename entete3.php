@@ -11,9 +11,12 @@
             </li>
 
             <li>
-                <a href="accueilAgent.php">Acceuil</a>
+                <a href="accueilAdmin.php">Acceuil</a>
             </li>
 
+            <li>
+                <a href="chambreAdmin.php">chambres</a>
+            </li>
             <li>
                 <a href="hotel.php">Hotels</a>
             </li>

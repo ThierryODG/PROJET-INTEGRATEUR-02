@@ -68,32 +68,4 @@
             }
         ?>
     </div>
-    <?php
-    // $currentPage = basename($_SERVER['PHP_SELF']);
-    // if ($currentPage == "index.php") {
-    //     echo "<h1>Decouvrez nos hotels de luxe </h1><br><br><a href=\"detailChambre.php\"> <button class=\"btn1\">CONSULTER NOS CHAMBRES</button></a>";
-    // } elseif ($currentPage == "hotel.php") {
-    //     echo "<h1>Catalogue de nos Hotels.<br> Faites votre choix!! </h1>";
-    // } elseif ($currentPage == "inscription.php" || $currentPage == "inscription.php") {
-    //     echo "<h1>Veillez vous inscrire ou vous connectez pour effectuer une reservation</h1>";
-    // } else {
-    //     echo "<h1>Bienvenu!! <br>Decouvrez nos hotels de luxe</h1>";
-    // }
-    ?>
-
-
-
 </section>
-<!-- formulaire pour le check in check out (a detaillé)-->
-<!-- <div class="formulaire_entete survol">
-    <form action="" method="post">
-
-        <label for="date_arrive">Date d'arrivée</label>
-        <input type="date" name="date_arrive">
-
-        <label for="">Verifier</label>
-        <input type="date" name="date_arrive ">
-        <input type="submit" value="Envoyer" class="btn_date">
-
-    </form>
-</div> -->

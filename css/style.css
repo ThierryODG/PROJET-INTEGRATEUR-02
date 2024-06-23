@@ -488,16 +488,12 @@ nav li h1 {
 .container {
     border: 1px solid transparent;
     margin-left: 5%;
-    height: 500px;
+    height: auto;
     width: fit-content;
     padding: 19px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     margin-top: 10px;
-    overflow-y: hidden;
 }
-
-
-
 
 
 .container button {
@@ -615,9 +611,6 @@ nav li h1 {
     border: 8px double white;
     color: white;
 }
-
-
-
 
 .droite {
     border: 0px solid green;

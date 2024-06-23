@@ -15,10 +15,8 @@ include("connecte.php");
 
 <body>
     <?php
-    include("entete2.php");
+        include("entete3.php");
     ?>
-
-
     <br>
     <h1 class="welcome">bienvenu chez <span>Diamond</span> Admin </h1>
     <p class="para1">cette page est réservée aux administrateurs </p>

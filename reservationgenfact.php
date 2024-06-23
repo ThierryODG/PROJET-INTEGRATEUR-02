@@ -18,11 +18,11 @@ if (isset($_POST['submit'])) {
     $id_hotel = $_GET['h_id'];
 
     // Ajout de la réservation
-    db_methode::add_reservation($id_client, $id_hotel, $date_arrive, $date_depart, false, $nb_personne);
+    //db_methode::add_reservation($id_client, $id_hotel, $date_arrive, $date_depart, false, $nb_personne);
 
     // Génération du PDF
     try {
-        db_methode::genererfacturepdf($id_client, $id_hotel, $type, $nb_perso, $option);
+        db_methode::genererFacturePdf($id_client, $id_hotel, $type, $nb_perso);
     } catch (Exception $e) {
         echo "Erreur lors de la génération du PDF : " . $e->getMessage();
     }

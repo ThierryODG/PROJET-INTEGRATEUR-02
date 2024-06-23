@@ -16,7 +16,7 @@
     
 
     //db_methode::add_client("Mare","Daouda","Masculin","07684843","daoudamare19@gmail.com","daouda005","b11406390");
-    db_methode::genererfacturepdf(7,5,"standrt",2,"wifi");
+    db_methode::genererfacturepdf(7,5,"standart",5,"wifi");
     /*
     $to = 'daoudamare19@gmail.com';
     $subject = 'Code de Reservation';

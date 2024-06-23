@@ -1,5 +1,5 @@
 <?php
-include("connecte.php");
+    include("connecte.php");
 ?>
 
 <!DOCTYPE html>

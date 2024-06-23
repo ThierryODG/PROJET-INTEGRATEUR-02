@@ -31,6 +31,7 @@
 </head>
 
 <body>
+    <?php include("entete.php");?>
     <h1 class="titleconnect">connectez-vous</h1>
     <div class="form">
         <?php
