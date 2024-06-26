@@ -12,7 +12,7 @@
             </li>
 
             <li>
-                <a href="accueilGuest.php">Acceuil</a>
+                <a href="accueilAgent.php">Acceuil</a>
             </li>
             <li>
                 <a href="hotel.php">Hotels</a>

@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php
-    include("entete.php");
+    include("entete3.php");
     ?>
 
     <br>
