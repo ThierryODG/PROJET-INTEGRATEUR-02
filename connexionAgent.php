@@ -1,3 +1,5 @@
+
+
 <?php
     if (isset($_POST['submite'])) {
 
@@ -6,19 +8,33 @@
             $password = $_POST['password'];
             $erreur = "";
             include 'connecte.php';
-            $req = mysqli_query($con, "SELECT * FROM agent_reception WHERE email = '$email' AND password = '$password' ");
-            $num_ligne = mysqli_num_rows($req);
+            // Utilisation de prepared statements pour éviter les injections SQL
+            $stmt = $con->prepare("SELECT * FROM agent_reception WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $num_ligne = $result->num_rows;
+            
             if ($num_ligne > 0) {
-                header("location:accueilAgent.php");
-                //session_start();
-
-                //$_SESSION[]=
+                $row = $result->fetch_assoc();
+                // Utilisation de password_verify pour vérifier le mot de passe
+                if ($password == $row['password']) {
+                    session_start();
+                    $_SESSION['nom'] = $row['nom'];
+                    $_SESSION['prenom'] = $row['prenom'];
+                    header("location:accueilAgent.php");
+                    exit();
+                } else {
+                    $erreur = "Email ou mot de passe incorrect.";
+                }
             } else {
-                $erreur = "Email ou Mots de passe incorrectes.";
+                $erreur = "Email ou mot de passe incorrect.";
             }
+            $stmt->close();
         }
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

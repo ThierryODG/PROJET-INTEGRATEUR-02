@@ -67,6 +67,12 @@ include("connecte.php");
 
     ?>
     <br><br>
+
+    <?php
+    include('displayc.php');
+
+    ?>
+    <br><br>
     <a href="inscription2.php" class="lienAD"> enregistrer Client</a> <a href="ajouthotel.php"> ajouter Hotel</a>
 
     <style>

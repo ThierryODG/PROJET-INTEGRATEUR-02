@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php
-    include("entete1.php");
+    include("entete2.php");
     ?>
 
     <h1>Réservation de Chambre</h1>
@@ -147,11 +147,6 @@ if (isset($_POST['submit'])) {
         <input type="submit" name="submit" value="Réserver">
     </form>
 
-
-
-
-
-
     <style>
         /* Style général du formulaire */
         .form {
@@ -209,16 +204,8 @@ if (isset($_POST['submit'])) {
         .form input[type="date"] {
             height: 20px;
             font-size: medium;
-
-
         }
     </style>
-
-
-
-
-
-
 
     <?php
     include("pied_de_page.php");

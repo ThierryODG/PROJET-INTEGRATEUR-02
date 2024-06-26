@@ -8,8 +8,12 @@
         $type = $_POST['type'];
 
         include("./methode/db_methode.php");
-        //db_methode::add_reservation($id_client, $id_hotel,$date_arrive, $date_depart, 0, $nb_personne);
-        db_methode::genererFacturePdf($id_client,$id_hotel,$type,$nb_personne);
+        try {
+            db_methode::genererFacturePdf($id_client,$id_hotel,$type,$nb_personne);
+        } catch (Exception $e) {
+            echo "Erreur lors de la génération du PDF : " . $e->getMessage();
+        }
+        db_methode::add_reservation($id_client, $id_hotel,$date_arrive, $date_depart, 0, $nb_personne);
     }
 
 ?>

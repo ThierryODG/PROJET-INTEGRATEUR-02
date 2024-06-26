@@ -54,7 +54,7 @@
                     echo '<a href="reservationlist.php.php"><button class="btn2">Voir mes reservations</button></a>';
                 } else {
                     // Si l'utilisateur n'est pas sur la page hotel.php
-                    echo '<a href="hotel.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>';
+                    echo '<a href="reservationAgent.php"><button class="btn2"> RESERVER UNE CHAMBRE</button></a>';
                 }
             } else {
                 // Si l'utilisateur n'est pas connecté
